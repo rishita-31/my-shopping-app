@@ -1,38 +1,207 @@
-.App {
-  text-align: center;
+body{
+  font-family: 'Lato', sans-serif;
+  background-color: #000033;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav{
+  color: aliceblue;
+  background-color: #b3fff0;
+  /* position:sticky; */
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav ul li a.active{
+  font-weight: bold;
+  text-decoration: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav ul li a:hover{
+  font-weight: bold;
+}
+.navbtn{
+  background-color: #e6eeff;
+}
+.navbtn:hover{
+  color: #e6eeff;
+  background-color: #6699ff;
+}
+.navimagecart{
+  margin-top:20%;
+  height: 20px;
+}
+.scrolled-down{
+  transform:translateY(-100%); transition: all 0.3s ease-in-out;
+}
+.scrolled-up{
+  transform:translateY(0); transition: all 0.3s ease-in-out;
+}
+form ul{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.citem{
+  background-color:#b3b3ff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  size: contain;
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+  /* opacity: 0.7; */
+}
+.first-carousel{
+  height:80vh;
+  padding: 30px 30px;
+  display: flex;
+}
+.image-container-one{
+  margin: 50px 150px;
+  border: 5px solid #cc6600;
+  border-radius: 50%;
+  width: 30%;
+  height:65%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.image-container-two{
+  margin: 50px 150px;
+  border: 5px solid #000080;
+  border-radius: 50%;
+  width: 30%;
+  height:65%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-position: center; */
+}
+.image-container-three{
+  margin: 50px 150px;
+  border: 5px solid #ff6666;
+  border-radius: 50%;
+  width: 30%;
+  height:65%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.carousel-heading-one{
+  background-color: #cc6600;
+  color:white;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Outfit', sans-serif;
+  padding:10px 20px;
+}
+.carousel-heading-two{
+  background-color: #000080;
+  color:white;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Outfit', sans-serif;
+  padding:10px 20px;
+}
+.carousel-heading-three{
+  background-color: #ff6666;
+  color:white;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Outfit', sans-serif;
+  padding:10px 20px;
+}
+.content{
+  margin: auto;
+}
+.carousel-button{
+  color:white;
+  font-weight: bold;
+}
+.footer{
+  width: 100%;
+  bottom: 0;
+  /* position: fixed; */
+  color:black;
+  text-align:center;
+  background-color: #b3fff0;
+}
+.cut-price{
+  text-decoration: line-through;
+}
+.in-stock{
+  color:green;
+  font-weight:bold;
+}
+.out-of-stock{
+  color:red;
+  font-weight:bold;
+}
+.section-one{
+  color:white;
+  text-align:center;
+}
+.section-one-desc{
+  color:white;
+  size: 1em;
+  text-align:center;
+  font-style: italic;
+}
+.new-offers{
+  background-color: pink;
+}
+.section-two{
+  color:black;
+  text-align:center;
+}
+.section-two-desc{
+  color:black;
+  size: 1em;
+  text-align:center;
+  font-style: italic;
+}
+.products{
+  display: flex;
+  padding: 30px 90px;
+}
+.product-one{
+  display: flex;
+  padding: 20px 20px;
+}
+.product-two{
+  display: flex;
+  padding: 20px 20px;
+}
+.newproduct-one-image img{
+  border: 2px double red;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.newproduct-two-image img{
+  border: 2px double violet;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.section{
+  background-color: #000033;
+}
+.header{
+  width: 100%;
+  height:40vh;
+  background-color: #000033;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.section-g{
+  background: linear-gradient(to bottom, #ff9966 0%, #ccffcc 100%);
+}
+.ghead{
+  color:white;
+  text-shadow: 0 0 3px black, 0 0 5px #f5057d;
+}
+.contact-section{
+  background: linear-gradient(to bottom, #000000 0%, #410096 100%);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.contact-section a{
+  color: yellow;
+  text-decoration: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact-section a:hover{
+  color:lightgreen;
 }
