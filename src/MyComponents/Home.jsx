@@ -73,6 +73,7 @@ export default function Home() {
                             </form>                 
                         </div>
                     </div>
+                    
                     <div className="card col-3" style={{width: '18rem', backgroundColor: '#e6ffff'}}>
                         <img src={img7} className="card-img-top  mt-3" alt="..." />
                         <div className="card-body">
