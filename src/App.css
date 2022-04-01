@@ -205,3 +205,21 @@ form ul{
 .contact-section a:hover{
   color:lightgreen;
 }
+
+.signin{
+  color: #e6eeff;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+
+}
+.box{
+  display: flex;
+  border: 2px solid white;
+  width: 50%;
+  align-self: center;
+  background-color: #e6f2ff;
+}
+.c-signin-form{
+  display:block;
+  width: 100%;
+  align-self: center;
+}
