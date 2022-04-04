@@ -20,13 +20,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <h1>yo sir</h1>
-
-        <form action="../../post" method="post" className="form">
-          <button type="submit">Connected?</button>
-        </form> */}
         <Header />
-        {/* <Home /> */}
             <Routes>
               <Route path = "/" element={<Home />}/>
               <Route path = "/groceries" element={<Groceries />} />
@@ -42,10 +36,7 @@ function App() {
         <Footer />
       </div>
     </Router>
-
-    
   );
 }
-
 
 export default App;
