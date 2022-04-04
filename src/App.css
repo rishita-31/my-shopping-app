@@ -215,6 +215,7 @@ form ul{
   display: flex;
   border: 2px solid white;
   width: 50%;
+  height: 90%;
   align-self: center;
   background-color: #e6f2ff;
 }
@@ -222,4 +223,40 @@ form ul{
   display:block;
   width: 100%;
   align-self: center;
+}
+.login{
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+}
+
+.left{
+  background-color: #1a75ff;
+  color: #e6f2ff;
+}
+
+.login-btn{
+  width: 100%;
+  margin-top: 10%;
+  background-color: #ff751a;
+  color: white;
+  border: none;
+
+}
+
+.login-shop-img{
+  bottom: 0;
+  width: 15%;
+  height: 40%;
+  display: flex;
+  margin-bottom: 0%;
+  position: absolute;
+}
+.formtext{
+  text-decoration: none;
+  color:#0f45e6;
+  font-weight: bold;
 }
