@@ -15,9 +15,13 @@ import Home from './MyComponents/Home';
 import Login from './MyComponents/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './MyComponents/Register';
+import AuthContext from './context/auth-context';
+import { useState } from 'react';
 
 function App() {
+  const [isLoggedIn ,setIsLoggedIn] = useState(false)
   return (
+    <AuthContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
     <Router>
       <div className="App">
         <Header />
@@ -36,6 +40,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </AuthContext.Provider>
   );
 }
 

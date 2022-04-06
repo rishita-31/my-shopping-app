@@ -1,10 +1,29 @@
-import React from 'react';
+import React,{useContext, useEffect} from 'react';
 import {Link} from "react-router-dom";
-
+import AuthContext from '../context/auth-context';
 
 
 export default function Header() {
-    
+    const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
+    if(localStorage.getItem('token')){
+        setIsLoggedIn(true);
+    }
+    const logoutHandler = () => {
+        fetch('/logout').then((response) => {
+            if(!response.ok){
+              console.log(response);
+            if (response.status === 500) return window.alert('Check your internet connection')
+            else return window.alert('Something went wrong!!, try again')
+          }else{
+            response.json().then((result) => {
+              window.alert(result.message);
+              localStorage.removeItem('token')  
+              setIsLoggedIn(false);    
+            })
+            .catch(err => window.alert(err.message));
+          }
+        })
+    }
     return (
         
         <nav className="autohide navbar navbar-expand-lg navbar-light">
@@ -40,9 +59,12 @@ export default function Header() {
                     
                     <ul className="navbar-nav mb-0 me-2 mb-lg-0">
                         <img src="./images/cart.png" className="navimagecart" alt="" />
-                        <li className="nav-item">
+                        {isLoggedIn == false && <li className="nav-item">
                             <Link className="nav-link" to="/login">Login/Register</Link>
-                        </li>
+                        </li>}
+                        {isLoggedIn == true && <li className="nav-item">
+                            <Link className="nav-link" to="/" onClick={logoutHandler}>LogOut</Link>
+                        </li>}
                         <li className="nav-item">
                             <Link className="nav-link" to="/cart">Cart</Link>
                         </li>
