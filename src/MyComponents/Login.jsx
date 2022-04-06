@@ -56,8 +56,7 @@ if(isLoggedIn){
                                 </Col>
                             </FormGroup>    
                         </form>
-                    </div>
-                
+                    </div>              
                 </div>
             </div>
         );
