@@ -20,7 +20,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header title="STOP N' SHOP" />
             <Routes>
               <Route path = "/" element={<Home />}/>
               <Route path = "/groceries" element={<Groceries />} />

@@ -3,6 +3,7 @@ body{
   background-color: #000033;
 }
 nav{
+  width: 100%;
   color: aliceblue;
   background-color: #b3fff0;
   /* position:sticky; */

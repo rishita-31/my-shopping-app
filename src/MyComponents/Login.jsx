@@ -4,7 +4,11 @@ import { Label, Input } from 'reactstrap';
 import background from '../images/background.jpg';
 import { Link } from 'react-router-dom';
 import  shop  from '../images/shop.png';
+// import { GoogleLogin } from 'react-google-login';
 
+// const responseGoogle = (response) => {
+//     console.log(response);
+// }
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -53,12 +57,16 @@ export default class Login extends React.Component {
                                     </FormText>
                                 </Col>
                             </FormGroup>
-
-                            
-                            
+                            {/* <GoogleLogin
+                                clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                                buttonText="Login"
+                                onSuccess={responseGoogle}
+                                onFailure={responseGoogle}
+                                cookiePolicy={'single_host_origin'}
+                                
+                            />, */}
                         </form>
-                    </div>
-                
+                    </div>              
                 </div>
             </div>
         );

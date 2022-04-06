@@ -48,14 +48,7 @@ export default function Register() {
                     
                 </form>
             </div>
-        {/* <Tabs defaultActiveKey="customer" id="uncontrolled-tab-example">
-            <Tab eventKey="customer" title="Customer"><br /><br />
-                <CSignIn />
-            </Tab>
-            <Tab eventKey="register" title="Register">
-                <Register />
-            </Tab>
-        </Tabs> */}
+        
         </div>
     </div>
   )

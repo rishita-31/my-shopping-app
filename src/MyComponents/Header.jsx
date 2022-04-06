@@ -1,20 +1,17 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-
-
-export default function Header() {
+export default function Header(props) {
     
     return (
-        
         <nav className="autohide navbar navbar-expand-lg navbar-light">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">STOP N' SHOP</Link>
+                <Link className="navbar-brand" to="/">{props.title}</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul className="navbar-nav me-auto mb-lg-0">
                         <li className="nav-item">
                             <Link className="nav-link" aria-current="page" to="/">Home</Link>
                         </li>
@@ -38,7 +35,7 @@ export default function Header() {
                         </li>
                     </ul>
                     
-                    <ul className="navbar-nav mb-0 me-2 mb-lg-0">
+                    <ul className="navbar-nav mb-0 me-2 d-flex my-auto">
                         <img src="./images/cart.png" className="navimagecart" alt="" />
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">Login/Register</Link>
@@ -49,5 +46,6 @@ export default function Header() {
                     </ul>
                 </div>
             </div>
-        </nav>);
+        </nav>
+    );
 }
