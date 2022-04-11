@@ -1,5 +1,4 @@
-// import logo from './logo.svg';
-import './App.css';
+import './App.css'
 import './style.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './MyComponents/Header';
@@ -12,29 +11,48 @@ import Shops from './MyComponents/Shops';
 import Contact from './MyComponents/Contact';
 import Cart from './MyComponents/Cart';
 import Home from './MyComponents/Home';
+import Login from './MyComponents/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Register from './MyComponents/Register';
+import AuthContext from './context/auth-context';
+import { useState } from 'react';
+import { decodeToken } from "react-jwt";
+import useData from './hooks/use-data';
+
 
 function App() {
+  let val = false;
+  let currentUser = {}
+  if (localStorage.getItem('token')) {
+    const token = localStorage.getItem('token');
+    currentUser = decodeToken(token);
+    val = true
+  }
+  const [isLoggedIn, setIsLoggedIn] = useState(val);
+  const data = useData();
+
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        {/* <Home /> */}
-            <Routes>
-              <Route path = "/" element={<Home />}/>
-              <Route path = "/groceries" element={<Groceries />} />
-              <Route path = "/pharmacy" element={<Pharmacy />} />
-              <Route path = "/electronics" element={<Electronics />} />
-              <Route path = "/books" element={<Books />} />
-              <Route path = "/shops" element={<Shops />} />
-              <Route path = "/contact" element={<Contact />} />
-              <Route path = "/cart" element={<Cart />} />
-            </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+      <Router>
+        <div className="App">
+          <Header title="STOP N' SHOP" />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/groceries" element={<Groceries data={data} />} />
+            <Route path="/pharmacy" element={<Pharmacy />} />
+            <Route path="/electronics" element={<Electronics />} />
+            <Route path="/books" element={<Books />} />
+            <Route path="/shops" element={<Shops />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </AuthContext.Provider>
   );
 }
-
 
 export default App;
