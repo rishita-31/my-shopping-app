@@ -23,13 +23,11 @@ const useAuth = (data = {
           body: JSON.stringify(userState)
       }).then(response => {
         if(!response.ok){
-            console.log(response);
           if(response.status === 401) return window.alert('Invalid username or password')
           else if (response.status === 500) return window.alert('Check your internet connection')
           else return window.alert('Something went wrong!!, try again')
         }else{
           response.json().then((result)=> {
-            console.log(result);
             if(!result.auth) throw Error(result.error.message)
             window.alert(result.message);
             localStorage.setItem('token',result.token)

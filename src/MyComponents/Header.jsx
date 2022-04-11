@@ -1,13 +1,10 @@
-import React,{useContext, useEffect} from 'react';
-import {Link} from "react-router-dom";
+import React,{useContext} from 'react';
+import {Link, useNavigate} from "react-router-dom";
 import AuthContext from '../context/auth-context';
 
-
-export default function Header() {
+export default function Header(props) {
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
-    if(localStorage.getItem('token')){
-        setIsLoggedIn(true);
-    }
+    const navigate = useNavigate();
     const logoutHandler = () => {
         fetch('/logout').then((response) => {
             if(!response.ok){
@@ -17,8 +14,9 @@ export default function Header() {
           }else{
             response.json().then((result) => {
               window.alert(result.message);
-              localStorage.removeItem('token')  
+              localStorage.removeItem('token');
               setIsLoggedIn(false);    
+              navigate('/login');  
             })
             .catch(err => window.alert(err.message));
           }
@@ -58,10 +56,10 @@ export default function Header() {
                     
                     <ul className="navbar-nav mb-0 me-2 d-flex my-auto">
                         <img src="./images/cart.png" className="navimagecart" alt="" />
-                        {isLoggedIn == false && <li className="nav-item">
+                        {isLoggedIn === false && <li className="nav-item">
                             <Link className="nav-link" to="/login">Login/Register</Link>
                         </li>}
-                        {isLoggedIn == true && <li className="nav-item">
+                        {isLoggedIn === true && <li className="nav-item">
                             <Link className="nav-link" to="/" onClick={logoutHandler}>LogOut</Link>
                         </li>}
                         <li className="nav-item">
