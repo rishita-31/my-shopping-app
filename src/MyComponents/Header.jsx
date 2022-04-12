@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import AuthContext from '../context/auth-context';
 
 
-export default function Header() {
+export default function Header(props) {
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
     if(localStorage.getItem('token')){
         setIsLoggedIn(true);
