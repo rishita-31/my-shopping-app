@@ -261,3 +261,30 @@ form ul{
   color:#0f45e6;
   font-weight: bold;
 }
+
+.shopping-banner{
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 50vh;
+}
+
+.cart-item{
+  background-color: #ffffff;
+
+}
+
+.cart-prod{
+  display: flex;
+}
+.imageContainer{
+  height: 20vh;
+  background-image: url(./images/img8.jpg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.grandTotal{
+  height: fit-content;
+}

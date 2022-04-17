@@ -1,97 +1,100 @@
 import React from 'react';
-import img1 from '../images/img1.jpg';
-import {Link} from "react-router-dom";
-
+import shoppingCart from '../images/shopping-cart.jpg';
+import { Table, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
-  return <>
-  <div className="header" style = {{backgroundImage: `url(${img1})`}}></div>
-  <section className="section-g">
-        <div className="container py-5">
-          <h2 className="ghead d-flex justify-content-center pt-2">OFFERS OF THE DAY</h2>
-          <p className="ghead pb-5 d-flex justify-content-center fst-italic">These offers are valid only till 11:59:59 today!</p>
-          <div className="row d-inline-flex justify-content-center">
-            <div className="card col-3 mx-1 my-1" style={{width: '18rem'}}>
-              <span class="position-absolute end-0 top-0 translate-end badge bg-dark">Sale</span>
-                <img src={img1} className="mt-3" alt="..."/>
-                <div className="card-body">
-                    <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
-                    <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>
-                    <form>
-                        <p><span className="price">&#x20B9;1599</span> | <span className="in-stock">In stock</span> </p>
-                        <Link to="#" className="btn btn-primary">Add to Cart</Link>
-                    </form>                 
+    return <>
+    <div className="shopping-banner" style = {{backgroundImage: `url(${shoppingCart})`}}></div>
+    <section className="section-g">
+        <div style={{backgroundColor: '#f0f0f5'}}>
+            <h2 className="d-flex justify-content-center py-5">Items you have added</h2>
+            <div className="container pb-5" style={{display: 'flex'}}>
+                {/* <div className="row cart-item px-4 py-3" style = {{backgroundColor: '#ffffff'}}>
+                    <div className="imageContainer col-3"></div>
+                    <div className="product col-5"></div>
+                </div> */}
+                <div className='row col-9 px-2'>
+                    <Table responsive="sm">
+                        <thead>
+                            <tr>
+                                <th>Product Details</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className='cart-prod'>
+                                <div className="imageContainer col-5 py-2"></div>
+                                <div className="product col-7 py-2">Fbjbdjbvj ldsbgvl d svbhhhhhh h hhh hhhhhhhh h   hhhhhhhhh hhhhhhh hhhhhhhhhh hhhhhhhhhhhhhhhhh</div>
+                                </td>
+                                <td>
+                                    <form>
+                                        <input type="number" min={1} max={15} />
+                                    </form>
+                                </td>
+                                <td>6739</td>
+                                <td>457579</td>                    
+                                <td><Button variant='danger' className='btn-sm'>Delete</Button></td>                    
+                            </tr>             
+                            <tr>
+                                <td className='cart-prod'>
+                                <div className="imageContainer col-5 py-2"></div>
+                                <div className="product col-7 py-2">Fbjbdjbvj ldsbgvl d svbhhhhhh h hhh hhhhhhhh h   hhhhhhhhhhhhhhhh hhhhhhhhhh hhhhhhhhhhhhhhhhh</div>
+                                </td>
+                                <td>
+                                    <form>
+                                        <input type="number" min={1} max={15} />
+                                    </form>
+                                </td>
+                                <td>6739</td>
+                                <td>457579</td>                    
+                                <td><Button variant='danger' className='btn-sm'>Delete</Button></td>                    
+                            </tr>             
+                            <tr>
+                                <td className='cart-prod'>
+                                <div className="imageContainer col-5 py-2"></div>
+                                <div className="product col-7 py-2">Fbjbdjbvj ldsbgvl d svbhhhhhh h hhh hhhhhhhh h   hhhhhhhhhhhhhhhh hhhhhhhhhh hhhhhhhhhhhhhhhhh</div>
+                                </td>
+                                <td>
+                                    <form>
+                                        <input type="number" min={1} max={15} />
+                                    </form>
+                                </td>
+                                <td>6739</td>
+                                <td>457579</td>                    
+                                <td><Button variant='danger' className='btn-sm'>Delete</Button></td>                    
+                            </tr>             
+                            <tr>
+                                <td className='cart-prod'>
+                                <div className="imageContainer col-5 py-2"></div>
+                                <div className="product col-7 py-2">Fbjbdjbvj ldsbgvl d svbhhhhhh h hhh hhhhhhhh h   hhhhhhhhhhhhhhhh hhhhhhhhhh hhhhhhhhhhhhhhhhh</div>
+                                </td>
+                                <td>
+                                    <form>
+                                        <input type="number" min={1} max={15} />
+                                    </form>
+                                </td>
+                                <td>6739</td>
+                                <td>457579</td>                    
+                                <td><Button variant='danger' className='btn-sm'>Delete</Button></td>                    
+                            </tr>             
+                        </tbody>
+                    </Table>
+                </div>
+                <div className="col-3">
+                    <div className='px-2 grandTotal' style={{border:'1px solid black',borderRadius:'10px'}}>
+                        <h2 className='p-2'>GRAND TOTAL: </h2>
+                        <h3 className='px-2'>0</h3>
+                    </div><div className="py-2">
+                        <Button variant='success' size='sm'>Next</Button>
+                    </div>
                 </div>
             </div>
-            <div className="card col-3 mx-1 my-1" style={{width: '18rem'}}>
-                <img src={img1} className="card-img-top mt-3" alt="..."/>
-                <div className="card-body">
-                    <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
-                    <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>
-                    <form>
-                        <p><span className="price">&#x20B9;1599</span> | <span className="in-stock">In stock</span> </p>
-                        <Link to="#" className="btn btn-primary">Add to Cart</Link>
-                    </form>                 
-                </div>
-            </div>
-            <div className="card col-3 mx-1 my-1" style={{width: '18rem'}}>
-                <img src={img1} className="card-img-top mt-3" alt="..."/>
-                <div className="card-body">
-                    <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
-                    <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>
-                    <form>
-                        <p><span className="price">&#x20B9;1599</span> | <span className="in-stock">In stock</span> </p>
-                        <Link to="#" className="btn btn-primary">Add to Cart</Link>
-                    </form>                 
-                </div>
-            </div>
-            <div className="card col-3 mx-1 my-1" style={{width: '18rem'}}>
-                <img src={img1} className="card-img-top mt-3" alt="..."/>
-                <div className="card-body">
-                    <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
-                    <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>
-                    <form>
-                        <p><span className="price">&#x20B9;1599</span> | <span className="in-stock">In stock</span> </p>
-                        <Link to="#" className="btn btn-primary">Add to Cart</Link>
-                    </form>                 
-                </div>
-            </div>
-            <div className="card col-3 mx-1 my-1" style={{width: '18rem'}}>
-                <img src={img1} className="card-img-top mt-3" alt="..."/>
-                <div className="card-body">
-                    <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
-                    <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>
-                    <form>
-                        <p><span className="price">&#x20B9;1599</span> | <span className="in-stock">In stock</span> </p>
-                        <Link to="#" className="btn btn-primary">Add to Cart</Link>
-                    </form>                 
-                </div>
-            </div>
-            <div className="card col-3 mx-1 my-1" style={{width: '18rem'}}>
-                <img src={img1} className="card-img-top mt-3" alt="..."/>
-                <div className="card-body">
-                    <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
-                    <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>
-                    <form>
-                        <p><span className="price">&#x20B9;1599</span> | <span className="in-stock">In stock</span> </p>
-                        <Link to="#" className="btn btn-primary">Add to Cart</Link>
-                    </form>                 
-                </div>
-            </div>
-            <div className="card col-3 mx-1 my-1" style={{width: '18rem'}}>
-                <img src={img1} className="card-img-top mt-3" alt="..."/>
-                <div className="card-body">
-                    <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
-                    <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>
-                    <form>
-                        <p><span className="price">&#x20B9;1599</span> | <span className="in-stock">In stock</span> </p>
-                        <Link to="#" className="btn btn-primary">Add to Cart</Link>
-                    </form>                 
-                </div>
-            </div>
-            
-          </div>
         </div>
-      </section>
-</>
+    </section>
+    </>
 }
