@@ -14,6 +14,8 @@ import read from '../images/read.jpg';
 
 
 export default function Home() {
+
+
   return (
     <>
     <Carousel>

@@ -2,7 +2,7 @@
   "name": "shopping-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -17,6 +17,7 @@
     "react-bootstrap": "^2.2.2",
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",
+    "react-jwt": "^1.1.4",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "react-tabs": "^4.0.1",
