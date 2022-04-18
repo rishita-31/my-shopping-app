@@ -7,8 +7,8 @@ export default function Details() {
 
     <div className="detail-page">
       <div className="container productPage col-12">
-          <div className='productPageLeft my-5 col-7 p-5'>
-            <img src={location.state.image} alt="" />
+          <div className='productPageLeft my-5 col-5 px-3 py-5' style={{backgroundImage:'{location.state.title}'}}>
+            {/* <img src={location.state.image} alt="" /> */}
           </div>
           <div className="productPageRight my-5 col-7 p-5">
             <h2>{location.state.title}</h2>
