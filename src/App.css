@@ -311,7 +311,12 @@ form ul{
   display: flex;
 }
 .productPageLeft{
+<<<<<<< HEAD
   background-image: url(./images/img9.jpg);
+=======
+  border: 1px solid #000000;
+  /* background-image: url(./images/img9.jpg); */
+>>>>>>> 5547ae0453d6fd9eafd23fb42184012c043f5dd9
   height: 80vh;
   background-repeat: no-repeat;
   background-position: center;
