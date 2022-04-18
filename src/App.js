@@ -12,6 +12,7 @@ import Contact from './MyComponents/Contact';
 import Cart from './MyComponents/Cart';
 import Home from './MyComponents/Home';
 import Login from './MyComponents/Login';
+import Details from './MyComponents/Details';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './MyComponents/Register';
 import AuthContext from './context/auth-context';
@@ -47,6 +48,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/details" element={<Details />} />
           </Routes>
           <Footer />
         </div>
