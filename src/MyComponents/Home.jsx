@@ -77,7 +77,9 @@ export default function Home() {
                     </div>
                     
                     <div className="card col-3" style={{width: '18rem', backgroundColor: '#e6ffff'}}>
-                        <img src={img7} className="card-img-top  mt-3" alt="..." />
+                        <div className="card-img">
+                            <img src={img7} className="card-img-top  mt-3" alt="..." />   
+                        </div>
                         <div className="card-body">
                             <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
                             <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>
@@ -88,7 +90,9 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="card col-3" style={{width: '18rem', backgroundColor: '#ffffe6'}}>
-                        <img src={img9} className="card-img-top  mt-3" alt="..."/>
+                        <div className="card-img">
+                            <img src={img9} className="card-img-top  mt-3" alt="..."/>
+                        </div>
                         <div className="card-body">
                             <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
                             <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>

@@ -287,4 +287,32 @@ form ul{
 }
 .grandTotal{
   height: fit-content;
+  display: flex;
+  align-self:flex-end;
+  width: 40%;
+}
+.card-img{
+  height: 320px;
+  position: absolute;
+  overflow: hidden;
+}
+.detail-page{
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f8f8;
+
+}
+.productPage{
+  display: flex;
+}
+.productPageLeft{
+  /* border: 1px solid #000000; */
+  background-image: url(./images/img9.jpg);
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.productPageRight{
+  /* border: 1px solid #000000; */
 }
