@@ -7,7 +7,7 @@ export default function Groceries(props) {
   const navigate = useNavigate();
   const groceriesData = [];
 
-  props.data.map(element => {
+  props.itemData.map(element => {
     if (element.type === 'groceries') {
       groceriesData.push(element);
     }
@@ -16,9 +16,13 @@ export default function Groceries(props) {
   const clickHandler = (items) => {
     navigate('/details', {
       state: {
-        image: items.image, title: items.itemName,
-        desc: items.description,
-        price: items.price
+        image: items.image, 
+        itemName: items.itemName,
+        description: items.description,
+        price: items.price,
+        quantity: items.quantity,
+        weight: items.weight,
+        type: items.type
       }
     })
   }

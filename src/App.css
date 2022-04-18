@@ -280,7 +280,7 @@ form ul{
 }
 .imageContainer{
   height: 20vh;
-  background-image: url(./images/img8.jpg);
+  /* background-image: url(./images/img8.jpg); */
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -310,9 +310,8 @@ form ul{
 .productPage{
   display: flex;
 }
+
 .productPageLeft{
-  border: 1px solid #000000;
-  /* background-image: url(./images/img9.jpg); */
   height: 80vh;
   background-repeat: no-repeat;
   background-position: center;
