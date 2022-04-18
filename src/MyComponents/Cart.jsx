@@ -73,7 +73,7 @@ export default function Cart() {
                 </div>
                 <div className="row grandTotal">
                     <div>
-                        
+                        {/* <hr style="width:20%; margin-right:0px;" /> */}
                         <h5 className='px-3'>Grand Total</h5>
                         <div className="total">
 
