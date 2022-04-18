@@ -64,6 +64,7 @@ export default function Home() {
                 <h2 className="section-one pt-2">OFFERS OF THE DAY</h2>
                 <p className="section-one-desc pb-5">These offers are valid only till 11:59:59 today!</p>
                 <div className="row">
+                    
                     <div className="card col-3" style={{width: '18rem', backgroundColor: '#f2e6ff'}}>
                         <img src={img8} name="product-image" className="card-img-top mt-3" alt="..."/>
                         <div className="card-body">
@@ -77,7 +78,9 @@ export default function Home() {
                     </div>
                     
                     <div className="card col-3" style={{width: '18rem', backgroundColor: '#e6ffff'}}>
-                        <img src={img7} className="card-img-top  mt-3" alt="..." />
+                        <div className="card-img px-2">
+                            {/* <img src={img7} className="card-img-top  mt-3" alt="..." />    */}
+                        </div>
                         <div className="card-body">
                             <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
                             <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>
@@ -88,7 +91,9 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="card col-3" style={{width: '18rem', backgroundColor: '#ffffe6'}}>
-                        <img src={img9} className="card-img-top  mt-3" alt="..."/>
+                        <div className="card-img">
+                            <img src={img9} className="card-img-top  mt-3" alt="..."/>
+                        </div>
                         <div className="card-body">
                             <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
                             <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>

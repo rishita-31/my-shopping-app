@@ -12,6 +12,7 @@ import Contact from './MyComponents/Contact';
 import Cart from './MyComponents/Cart';
 import Home from './MyComponents/Home';
 import Login from './MyComponents/Login';
+import Details from './MyComponents/Details';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './MyComponents/Register';
 import AuthContext from './context/auth-context';
@@ -29,7 +30,7 @@ function App() {
     val = true
   }
   const [isLoggedIn, setIsLoggedIn] = useState(val);
-  const data = useData();
+  const itemData = useData();
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
@@ -38,15 +39,16 @@ function App() {
           <Header title="STOP N' SHOP" />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/groceries" element={<Groceries data={data} />} />
-            <Route path="/pharmacy" element={<Pharmacy />} />
+            <Route path="/groceries" element={<Groceries itemData={itemData} />} />
+            <Route path="/pharmacy" element={<Pharmacy itemData={itemData} />} />
             <Route path="/electronics" element={<Electronics />} />
-            <Route path="/books" element={<Books />} />
+            <Route path="/books" element={<Books itemData={itemData} />} />
             <Route path="/shops" element={<Shops />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/details" element={<Details />} />
           </Routes>
           <Footer />
         </div>

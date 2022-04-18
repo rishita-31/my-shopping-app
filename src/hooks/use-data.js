@@ -4,7 +4,8 @@ const useData = (path = '/items') => {
 
     const [data, setData] = useState([]);
 
-    useEffect( () => fetch(path , {
+    useEffect( () => {
+      fetch(path , {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
@@ -19,8 +20,9 @@ const useData = (path = '/items') => {
       })
       .catch(err => window.alert(err.message));
     }
-  }
-  ),[]);
+  })
+
+},[]);
   
     return data;
 
