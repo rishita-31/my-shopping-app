@@ -13,10 +13,10 @@ export default function Groceries(props) {
     })
 
     const card = groceriesData.map(items => {
-            return <div className="card col-3 mx-1 my-1" style={{width: '18rem'}}>
+            return <div className="card col-3 mx-1 my-1" style={{width: '18rem', height: '400px'}}>
             <span class="position-absolute end-0 top-0 translate-end badge bg-dark">Sale</span>
-              <img src={`${items.image}`} className="mt-3" alt="Loading..."/>
-              <div className="card-body">
+              <img src={`${items.image}`} className="mt-3" alt="Loading..." height='200px'/>
+              <div className="card-body" >
                   <h5 className="card-title">{items.itemName}</h5>
                   {/* <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p> */}
                   <form>
