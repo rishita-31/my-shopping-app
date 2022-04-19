@@ -5,9 +5,8 @@ import Header from './MyComponents/Header';
 import Footer from './MyComponents/Footer';
 import Groceries from './MyComponents/Groceries';
 import Pharmacy from './MyComponents/Pharmacy';
-import Electronics from './MyComponents/Electronics';
 import Books from './MyComponents/Books';
-import Shops from './MyComponents/Shops';
+// import Shops from './MyComponents/Shops';
 import Contact from './MyComponents/Contact';
 import Cart from './MyComponents/Cart';
 import Home from './MyComponents/Home';
@@ -19,6 +18,7 @@ import AuthContext from './context/auth-context';
 import { useState } from 'react';
 import { decodeToken } from "react-jwt";
 import useData from './hooks/use-data';
+import Address from './MyComponents/Address';
 
 
 function App() {
@@ -41,14 +41,14 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/groceries" element={<Groceries data={data} />} />
             <Route path="/pharmacy" element={<Pharmacy />} />
-            <Route path="/electronics" element={<Electronics />} />
             <Route path="/books" element={<Books />} />
-            <Route path="/shops" element={<Shops />} />
+            {/* <Route path="/shops" element={<Shops />} /> */}
             <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/details" element={<Details />} />
+            <Route path="/address" element={<Address />} />
           </Routes>
           <Footer />
         </div>

@@ -41,9 +41,6 @@ export default function Header(props) {
                             <Link className="nav-link" to="/pharmacy">Pharmacy</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/electronics">Electronics</Link>
-                        </li>
-                        <li className="nav-item">
                             <Link className="nav-link" to="/books">Books&Stationery</Link>
                         </li>
                         <li className="nav-item">

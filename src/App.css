@@ -290,17 +290,23 @@ form ul{
   display: flex;
   align-self:flex-end;
   width: 40%;
+  border: 1px solid black;
 }
-/* .card-img{
-  height: 320px;
+.card-img{
+  height: 100%;
   position: absolute;
   overflow: hidden;
-  background-image: url(./images/img7.jpg);
-  background-repeat: no-repeat;
+  /* background-image: url(./images/img7.jpg); */
+  /* background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: cover; */
   position: absolute;
-} */
+  
+}
+.card-img img{
+  position: absolute;
+  display: block;
+}
 .detail-page{
   width: 100vw;
   height: 100vh;
@@ -316,4 +322,8 @@ form ul{
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+.address-form{
+  border: 1px solid black;
+
 }

@@ -66,18 +66,19 @@ export default function Cart() {
                                 </td>
                                 <td>6739</td>
                                 <td>457579</td>                    
-                                <td><Button variant='danger' className='btn-sm'>Delete</Button></td>                    
+                                <td><Button variant='danger' className='btn-sm'>Delete</Button></td> 
+                                
                             </tr>             
                         </tbody>
                     </Table>
                 </div>
-                <div className="row grandTotal">
-                    <div>
-                        {/* <hr style="width:20%; margin-right:0px;" /> */}
-                        <h5 className='px-3'>Grand Total</h5>
-                        <div className="total">
-
-                        </div>
+                <div className="grandTotal p-3">
+                    <div className='flex col-12'>
+                        
+                        <h5>Grand Total</h5>
+                        <div className='col-6'>subTotal</div>
+                        <div className='col-6'>right</div>
+                        
                     </div>
                 </div>
                 {/* <div className="col-3">
