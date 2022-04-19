@@ -280,7 +280,7 @@ form ul{
 }
 .imageContainer{
   height: 20vh;
-  background-image: url(./images/img8.jpg);
+  /* background-image: url(./images/img8.jpg); */
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
