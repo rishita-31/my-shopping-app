@@ -59,12 +59,12 @@ export default function Home() {
        
 
     <section className="section py-5">
-        <div className="container  col-12 px-3" style={{height:'100vh', display: 'flex'}}>
+        <div className="container  col-12 px-3" style={{height:'fit-content', display: 'flex'}}>
             <div className="mx-auto">
                 <h2 className="section-one pt-2">OFFERS OF THE DAY</h2>
                 <p className="section-one-desc pb-5">These offers are valid only till 11:59:59 today!</p>
-                <div className="row">
-                    <div className="card col-3" style={{width: '18rem', backgroundColor: '#f2e6ff'}}>
+                <div className="row justify-content-center home-offers">
+                    <div className="card  home-offer-card col-3" style={{width: '18rem', backgroundColor: '#f2e6ff'}}>
                         <img src={img8} name="product-image" className="card-img-top mt-3" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-title" name="product-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
@@ -76,7 +76,7 @@ export default function Home() {
                         </div>
                     </div>
                     
-                    <div className="card col-3" style={{width: '18rem', backgroundColor: '#e6ffff'}}>
+                    <div className="card home-offer-card col-3" style={{width: '18rem', backgroundColor: '#e6ffff'}}>
                         {/* <div className="card-img px-2"> */}
                             <img src={img8} className="card-img-top  mt-3" alt="..." />   
                         {/* </div> */}
@@ -89,7 +89,7 @@ export default function Home() {
                             </form>                 
                         </div>
                     </div>
-                    <div className="card col-3" style={{width: '18rem', backgroundColor: '#ffffe6'}}>
+                    <div className="card home-offer-card col-3" style={{width: '18rem', backgroundColor: '#ffffe6'}}>
                         {/* <div className="card-img"> */}
                             <img src={img9} className="card-img-top  mt-3" alt="..."/>
                         {/* </div> */}
@@ -102,7 +102,7 @@ export default function Home() {
                             </form>                 
                         </div>
                     </div>
-                    <div className="card col-3" style={{width: '18rem', backgroundColor: '#f9f2ec'}}>
+                    <div className="card home-offer-card col-3" style={{width: '18rem', backgroundColor: '#f9f2ec'}}>
                         <img src={img8} className="card-img-top  mt-3" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
