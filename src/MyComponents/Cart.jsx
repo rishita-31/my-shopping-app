@@ -6,6 +6,7 @@ import AuthContext from '../context/auth-context';
 import Login from './Login';
 import useData from '../hooks/use-data';
 import { decodeToken } from 'react-jwt';
+import { useState } from 'react';
 
 export default function Cart() {
     let currentUser = {}
@@ -13,24 +14,48 @@ export default function Cart() {
         const token = localStorage.getItem('token');
         currentUser = decodeToken(token);
     }
-    const cartData = useData(`/cart/${currentUser.id}`);
+    let [sendReq, setSendReq] = useState(false);
+    const cartData = useData(`/cart/${currentUser.id}`,sendReq);
     const {isLoggedIn} = useContext(AuthContext);
-    const Navigate = useNavigate();
-    const clickHandler = (items) => {
-        Navigate('/details', {
-          state: {
-            image: items.image, 
-            itemName: items.itemName,
-            description: items.description,
-            price: items.price,
-            quantity: items.quantity,
-            weight: items.weight,
-            type: items.type
-          }
-        })
+
+    
+
+    // const Navigate = useNavigate();
+
+    // const clickHandler = (items) => {
+    //     // onClick={() => clickHandler(item)}
+    //     Navigate('/details', {
+    //       state: {
+    //         image: items.image, 
+    //         itemName: items.itemName,
+    //         description: items.description,
+    //         price: items.price,
+    //         quantity: items.quantity,
+    //         weight: items.weight,
+    //         type: items.type
+    //       }
+    //     })
+    //   }
+
+      const deleteHandler = (item) => {
+        fetch(`/cart/${item._id}/delete` , {
+            method: "DELETE",
+            headers: {
+              'Content-type': 'application/json'
+            },
+        }).then(response => 
+            response.json().then(result => {
+            setSendReq((prevState) => !prevState);
+            window.alert(result.message)
+        }
+        ).catch(err => console.log(err))
+        )
       }
+
+
+
         const row =() => cartData.map(
-            item =>  <tr onClick={() => clickHandler(item)}>
+            item =>  <tr>
             <td className='cart-prod'>
             <div className="imageContainer col-5 py-2" style={{backgroundImage: `url(${item.image})`}}></div>
             <div className="product col-7 py-2">{item.itemName}</div>
@@ -42,7 +67,7 @@ export default function Cart() {
             </td>
             <td>{`Rs. ${item.price}`}</td>
             <td>{`Rs. ${item.price * item.quantity}`}</td>                    
-            <td><Button variant='danger' className='btn-sm'>Delete</Button></td>                    
+            <td><Button variant='danger' onClick={() => deleteHandler(item)} className='btn-sm'>Delete</Button></td>                    
         </tr>
         )
     

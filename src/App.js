@@ -39,9 +39,9 @@ function App() {
           <Header title="STOP N' SHOP" />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/groceries" element={<Groceries itemData={itemData} />} />
-            <Route path="/pharmacy" element={<Pharmacy itemData={itemData} />} />
-            <Route path="/books" element={<Books itemData={itemData} />} />
+            <Route path="/groceries" element={<Groceries itemData={itemData} currentUser= {currentUser} />} />
+            <Route path="/pharmacy" element={<Pharmacy itemData={itemData} currentUser= {currentUser}/>} />
+            <Route path="/books" element={<Books itemData={itemData} currentUser= {currentUser}/>} />
             {/* <Route path="/shops" element={<Shops />} /> */}
             <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
