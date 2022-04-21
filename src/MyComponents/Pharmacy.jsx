@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import img1 from '../images/img1.jpg';
 import {Link, useNavigate} from "react-router-dom";
+import AuthContext from '../context/auth-context';
 
 export default function Pharmacy(props) {
+    const {isLoggedIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const pharmacyData = [];
 
@@ -26,17 +28,43 @@ export default function Pharmacy(props) {
         })
       }
 
+      const cartHandler = (items) => {
+        if(!isLoggedIn){
+          window.alert('Logging in first');
+          navigate('/login');
+          return;
+        }
+        const {id} = props.currentUser;
+        const {itemName, description,price,image,type,quantity,weight} = items;
+        const item = {
+          itemName,
+          description,
+          price,
+          image,
+          type,
+          quantity: 1,
+          weight,
+          userId: id
+        }
+        fetch('/cart' , {
+          method: "POST",
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify(item)
+      }).then(response => response.json().then(
+        result => window.alert(result.message)
+      ))
+      }
+
     const card = pharmacyData.map(items => {
-        return <div onClick={() => clickHandler(items)} className="card col-3 mx-1 my-1" style={{ width: '18rem', height: '400px' }}>
+        return <div className="card col-3 mx-1 my-1" style={{ width: '18rem', height: '400px' }}>
           <span class="position-absolute end-0 top-0 translate-end badge bg-dark">Sale</span>
-          <img src={`${items.image}`} className="mt-3" alt="Loading..." height='200px' />
+          <img src={`${items.image}`} onClick={() => clickHandler(items)} className="mt-3" alt="Loading..." height='200px' />
           <div className="card-body" >
-            <h5 className="card-title">{items.itemName}</h5>
-            {/* <p className="card-text"><span className="cut-price">&#x20B9;3999</span> (40% off) </p> */}
-            {/* <form> */}
+            <h5 className="card-title" onClick={() => clickHandler(items)} >{items.itemName}</h5>
             <p><span className="price">&#x20B9;{items.price}</span> | <span className="in-stock">In stock</span> </p>
-            <Link to="#" className="btn btn-primary">Add to Cart</Link>
-            {/* </form>                  */}
+            <button onClick={() => cartHandler(items)} className="btn btn-primary">Add to Cart</button>
           </div>
         </div>
       })

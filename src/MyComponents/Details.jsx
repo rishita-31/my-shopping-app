@@ -1,9 +1,11 @@
 import React, { useContext } from 'react'
+import { useState } from 'react';
 import { decodeToken } from 'react-jwt';
 import { Link ,useLocation, useNavigate} from 'react-router-dom';
 import AuthContext from '../context/auth-context';
 
 export default function Details() {
+  const [quantity, setquantity] = useState(1);
   const location = useLocation();
   const {isLoggedIn} = useContext(AuthContext);
   const Navigate = useNavigate();
@@ -21,7 +23,7 @@ export default function Details() {
       price,
       image,
       type,
-      quantity: 1,
+      quantity: quantity,
       weight,
       userId: id
     }
@@ -35,9 +37,19 @@ export default function Details() {
     result => window.alert(result.message)
   ))
 
-    console.log(item);
   }
+
+  
   const buyNowHandler = () =>{}
+
+  const clickIncreaseHandler = () => {
+    if(quantity<location.state.quantity)
+    setquantity((prevState)=> prevState +1);
+  }
+  const clickDecreaseHandler = () => {
+    if(quantity>1)
+    setquantity((prevState)=> prevState -1);
+  }
 
   return (
 
@@ -50,6 +62,11 @@ export default function Details() {
             <p className='py-3'>{location.state.description}</p>
             <p className="pt-3"><span className="cut-price">&#x20B9;699</span> (20% off) </p>
               <p><span className="price">{`Rs. ${location.state.price}`}</span> | <span className="in-stock">In stock</span> </p>
+              <form>
+                <span className='px-2 py-1 mx-2' onClick={clickIncreaseHandler} style={{border: '1px solid black'}}>+</span>
+                <input className='col-2' type="text" value={quantity} />
+                <span className='px-2 py-1 mx-2' onClick={clickDecreaseHandler} style={{border: '1px solid black'}}>-</span>
+                </form><br />
               <button onClick={cartHandler} className="btn btn-warning">Add to Cart</button>
               <button onClick={buyNowHandler} className="btn btn-success mx-2 px-4">Buy Now</button>
           </div>
