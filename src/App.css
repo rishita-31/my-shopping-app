@@ -287,11 +287,12 @@ form ul{
 }
 .grandTotal{
   height: fit-content;
-  display: flex;
   align-self:flex-end;
+  
   width: 40%;
   border: 1px solid black;
 }
+
 .card-img{
   height: 100%;
   position: absolute;

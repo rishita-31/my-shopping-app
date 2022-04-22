@@ -3,7 +3,7 @@ import { useState } from "react";
 const useAuth = (data = {
     username: '',
     password: ''
-  }, path = '/signIn') =>{
+  }, path = '/signIn', method = 'POST') =>{
     const [userState, setUserState] = useState(data);
       const [isLoggedIn, setIsLoggedIn] = useState(false);
     
@@ -16,7 +16,7 @@ const useAuth = (data = {
         e.preventDefault();
         
           fetch(path , {
-          method: "POST",
+          method: method,
           headers: {
             'Content-type': 'application/json'
           },

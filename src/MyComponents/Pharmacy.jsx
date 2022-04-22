@@ -58,8 +58,8 @@ export default function Pharmacy(props) {
       }
 
     const card = pharmacyData.map(items => {
-        return <div className="card col-3 mx-1 my-1" style={{ width: '18rem', height: '400px' }}>
-          <span class="position-absolute end-0 top-0 translate-end badge bg-dark">Sale</span>
+        return <div key={items._id} className="card col-3 mx-1 my-1" style={{ width: '18rem', height: '400px' }}>
+          <span className="position-absolute end-0 top-0 translate-end badge bg-dark">Sale</span>
           <img src={`${items.image}`} onClick={() => clickHandler(items)} className="mt-3" alt="Loading..." height='200px' />
           <div className="card-body" >
             <h5 className="card-title" onClick={() => clickHandler(items)} >{items.itemName}</h5>

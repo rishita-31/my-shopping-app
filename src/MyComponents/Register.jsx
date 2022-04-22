@@ -44,19 +44,19 @@ export default function Register() {
                     <FormGroup row>
                         <Label for="username" sm={2}>Username</Label>
                         <Col sm={10}>
-                            <Input type="text" name="username" id="username" onChange={manageChange} placeholder="Enter your username" />
+                            <Input type="text" name="username" id="username" onChange={manageChange} placeholder="Enter your username" required/>
                         </Col>
                     </FormGroup>
                     <FormGroup row>
                         <Label for="email" sm={2}>Email</Label>
                         <Col sm={10}>
-                            <Input type="email" name="email" id="email" onChange={manageChange} placeholder="Enter your email" />
+                            <Input type="email" name="email" id="email" onChange={manageChange} placeholder="Enter your email" required/>
                         </Col>
                     </FormGroup>
                     <FormGroup row>
                         <Label for="password" sm={2}>Password</Label>
                         <Col sm={10}>
-                            <Input type="password" name="password" onChange={manageChange} id="password" placeholder="Enter your password" />
+                            <Input type="password" name="password" onChange={manageChange} id="password" placeholder="Enter your password" required/>
                         </Col>
                     </FormGroup>
                     <FormGroup row>

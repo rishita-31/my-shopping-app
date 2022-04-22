@@ -15,7 +15,8 @@ export default function Details() {
       Navigate('/login');
       return;
     }
-    const {id} = decodeToken(localStorage.getItem('token'))
+    
+    const {id} = decodeToken(localStorage.getItem('token'));
     const {itemName, description,price,image,type,weight} = location.state;
     const item = {
       itemName,
@@ -40,7 +41,26 @@ export default function Details() {
   }
 
   
-  const buyNowHandler = () =>{}
+  const buyNowHandler = () => {
+    if(!isLoggedIn){
+      window.alert('Logging in first');
+      Navigate('/login');
+      return;
+    }
+    const {id} = decodeToken(localStorage.getItem('token'))
+    const {itemName, description,price,image,type,weight} = location.state;
+    const item = {
+      itemName,
+      description,
+      price,
+      image,
+      type,
+      quantity: quantity,
+      weight,
+      userId: id
+    }
+    Navigate('/address',{state: item});
+  }
 
   const clickIncreaseHandler = () => {
     if(quantity<location.state.quantity)
@@ -64,7 +84,7 @@ export default function Details() {
               <p><span className="price">{`Rs. ${location.state.price}`}</span> | <span className="in-stock">In stock</span> </p>
               <form>
                 <span className='px-2 py-1 mx-2' onClick={clickIncreaseHandler} style={{border: '1px solid black'}}>+</span>
-                <input className='col-2' type="text" value={quantity} />
+                <input className='col-2' type="text" value={quantity} readOnly/>
                 <span className='px-2 py-1 mx-2' onClick={clickDecreaseHandler} style={{border: '1px solid black'}}>-</span>
                 </form><br />
               <button onClick={cartHandler} className="btn btn-warning">Add to Cart</button>
