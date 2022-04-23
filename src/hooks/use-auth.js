@@ -3,13 +3,12 @@ import { useState } from "react";
 const useAuth = (data = {
     username: '',
     password: ''
-  }, path = '/signIn', method = 'POST') =>{
+  }, path = '/signIn', method = 'POST',body= []) =>{
     const [userState, setUserState] = useState(data);
       const [isLoggedIn, setIsLoggedIn] = useState(false);
     
       const manageChange = (e) => {
         setUserState(prevData => ( { ...prevData , [e.target.name]: e.target.value }));
-        // console.log(userState);
       }
 
       const manageSubmit = (e) => {
@@ -39,7 +38,7 @@ const useAuth = (data = {
       );
     
     }
-    return {isLoggedIn, manageChange,manageSubmit} 
+    return {isLoggedIn, manageChange,manageSubmit,userState} 
 }
 
 export default useAuth;

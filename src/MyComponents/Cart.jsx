@@ -10,11 +10,11 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Cart() {
     let currentUser = {}
+    let [sendReq, setSendReq] = useState(false);
     if (localStorage.getItem('token')) {
         const token = localStorage.getItem('token');
         currentUser = decodeToken(token);
     }
-    let [sendReq, setSendReq] = useState(false);
     const cartData = useData(`/cart/${currentUser.id}`, sendReq);
     const { isLoggedIn } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -35,11 +35,10 @@ export default function Cart() {
     }
 
     const placeOrderHandler = () => {
-        console.log('order')
         navigate('/address',{state: cartData});
     }
 
-    const row = () => cartData.map(
+    const row = cartData.map(
         item => <tr key={item._id}>
             <td className='cart-prod'>
                 <div className="imageContainer col-5 py-2" style={{ backgroundImage: `url(${item.image})` }}></div>
@@ -47,12 +46,12 @@ export default function Cart() {
             </td>
             <td>
                 <form>
-                    <input type="number" min={1} max={15} value={item.quantity} />
+                    <input type="number" min={1} max={15} value={item.quantity} readOnly />
                 </form>
             </td>
-            <td>{`Rs. ${item.price}`}</td>
-            <td>{`Rs. ${item.price * item.quantity}`}</td>
-            <td><Button variant='danger'  className='btn-sm'>Delete</Button></td>
+            <td>{`Rs.${item.price}`}</td>
+            <td>{`Rs.${item.price * item.quantity}`}</td>
+            <td><Button variant='danger' onClick={() => deleteHandler(item)} className='btn-sm'>Delete</Button></td>
         </tr>
     )
 
@@ -73,7 +72,7 @@ export default function Cart() {
                         </thead>
                         <tbody>
                             {
-                                row()
+                                row
                             }
                         </tbody>
                     </Table>
@@ -84,7 +83,7 @@ export default function Cart() {
                         <div className="total">
                             <h3>0</h3>
                         </div>
-                        <Button variant='warning' onClick={() => deleteHandler(it)} >Place Order</Button>
+                        <Button variant='warning' onClick={placeOrderHandler} >Place Order</Button>
                     </div>
                 </div>
             </div>
