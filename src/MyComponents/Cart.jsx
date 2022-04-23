@@ -1,23 +1,24 @@
 import React, { useContext } from 'react';
 import shoppingCart from '../images/shopping-cart.jpg';
 import { Table, Button } from 'react-bootstrap';
-import AuthContext from '../context/auth-context';
-import Login from './Login';
 import useData from '../hooks/use-data';
 import { decodeToken } from 'react-jwt';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../context/auth-context';
 
 export default function Cart() {
-    let currentUser = {}
+    const {isLoggedIn} = useContext(AuthContext);
     let [sendReq, setSendReq] = useState(false);
+    let currentUser = {}
     if (localStorage.getItem('token')) {
         const token = localStorage.getItem('token');
         currentUser = decodeToken(token);
     }
     const cartData = useData(`/cart/${currentUser.id}`, sendReq);
-    const { isLoggedIn } = useContext(AuthContext);
     const navigate = useNavigate();
+
+
 
     const deleteHandler = (item) => {
         fetch(`/cart/${item._id}/delete`, {
@@ -90,9 +91,7 @@ export default function Cart() {
         </div>
     </section>
 
-
-    return !isLoggedIn ? <Login /> :
-        <>
+    return <>
             <div className="shopping-banner" style={{ backgroundImage: `url(${shoppingCart})` }}></div>
             {cartData.length === 0 ? <div style={{ backgroundColor: '#f0f0f5' }}>
                 <h2 className="d-flex justify-content-center py-5">Your Cart is Empty</h2>

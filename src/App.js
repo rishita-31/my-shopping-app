@@ -37,7 +37,7 @@ function App() {
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       <Router>
         <div className="App">
-          <Header title="STOP N' SHOP" />
+          <Header title="STOP N' SHOP" currentUser={currentUser} />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/groceries" element={<Groceries itemData={itemData} currentUser= {currentUser} />} />

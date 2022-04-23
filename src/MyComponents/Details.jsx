@@ -49,7 +49,7 @@ export default function Details() {
     }
     const {id} = decodeToken(localStorage.getItem('token'))
     const {itemName, description,price,image,type,weight} = location.state;
-    const item = {
+    const item = [{
       itemName,
       description,
       price,
@@ -58,7 +58,7 @@ export default function Details() {
       quantity: quantity,
       weight,
       userId: id
-    }
+    }]
     Navigate('/address',{state: item});
   }
 

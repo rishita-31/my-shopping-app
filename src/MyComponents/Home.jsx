@@ -63,7 +63,7 @@ export default function Home() {
             <div className="mx-auto">
                 <h2 className="section-one pt-2">OFFERS OF THE DAY</h2>
                 <p className="section-one-desc pb-5">These offers are valid only till 11:59:59 today!</p>
-                <div className="row justify-content-center home-offers">
+                <div className="row justify-content-center">
                     <div className="card  home-offer-card col-3" style={{width: '18rem', backgroundColor: '#f2e6ff'}}>
                         <img src={img8} name="product-image" className="card-img-top mt-3" alt="..."/>
                         <div className="card-body">
@@ -102,7 +102,7 @@ export default function Home() {
                             </form>                 
                         </div>
                     </div>
-                    {/* <div className="card home-offer-card col-3" style={{width: '18rem', backgroundColor: '#f9f2ec'}}>
+                    <div className="card home-offer-card col-3" style={{width: '18rem', backgroundColor: '#f9f2ec'}}>
                         <img src={img8} className="card-img-top  mt-3" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
@@ -112,7 +112,7 @@ export default function Home() {
                                 <Link to="#" className="btn btn-primary">Add to Cart</Link>
                             </form>                 
                         </div>
-                    </div> */}
+                    </div>
 
                 </div>
             </div>
@@ -122,7 +122,7 @@ export default function Home() {
     <div className="new-offers mx-auto pt-5" style={{height: '90vh'}} >
         <h2 className="section-two">NEWLY ADDED PRODUCTS</h2>
         <p className="section-two-desc">Compare the products and grab the best deal!</p>
-        <div className="products col-12">
+        <div className="row products justify-content-center">
             <div className="product-one col-6">
                 <div className="col-6 mx-2 newproduct-one-image">
                     <img src={img9} alt="mama earth onion shampoo"/>

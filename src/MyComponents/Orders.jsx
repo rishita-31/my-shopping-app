@@ -1,12 +1,37 @@
 import React from 'react'
 import { Table, Button } from 'react-bootstrap';
 import ordersBanner from '../images/orders-banner.jpg';
-import img8 from '../images/img8.jpg';
+import useData from '../hooks/use-data';
+import { decodeToken } from 'react-jwt';
 
 function Orders() {
-  return (
-      <>
+    let currentUser = {}
+    if (localStorage.getItem('token')) {
+        const token = localStorage.getItem('token');
+        currentUser = decodeToken(token);
+    }
+    const orderData = useData(`/order/${currentUser.id}`);
+    const row = orderData.map(
+        item => <tr key={item._id}>
+        <td className='cart-prod'>
+            <div className="imageContainer col-5 py-2" style={{ backgroundImage: `url(${item.image})` }}></div>
+            <div className="product col-7 py-2">{item.itemName}</div>
+        </td>                                    
+        <td>{item.quantity}</td>
+        <td>&#x20B9;{item.price}</td>
+        <td>Order Placed</td>
+        <td>
+            <Button variant="danger">Cancel</Button>
+        </td>
+    </tr>
+    )
+
+  return (<>
         <div className="shopping-banner" style={{ backgroundImage: `url(${ordersBanner})`, backgroundPosition: 'center' }}></div>
+        { orderData.length === 0 ? 
+        <div style={{ backgroundColor: '#f0f0f5' }}>
+        <h2 className="d-flex justify-content-center  py-5">No Orders To Display</h2>
+        </div> :
         <section className="section-g">
             <div style={{ backgroundColor: '#f0f0f5' }}>
                 <h2 className="d-flex justify-content-center py-5">Your Orders</h2>
@@ -23,18 +48,9 @@ function Orders() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td className='cart-prod'>
-                                        <div className="imageContainer col-5 py-2" style={{ backgroundImage: `url(${img8})` }}></div>
-                                        <div className="product col-7 py-2">Lenovo HT05 TWS Earphones with Bluetooth 5.0</div>
-                                    </td>                                    
-                                    <td>3</td>
-                                    <td>&#x20B9;3999</td>
-                                    <td>Order Placed</td>
-                                    <td>
-                                        <Button variant="danger">Cancel</Button>
-                                    </td>
-                                </tr>
+                                {
+                                    row
+                                }
                             </tbody>
                         </Table>
                     </div>
@@ -42,7 +58,8 @@ function Orders() {
                 </div>
             </div>
         </section>
-      </>
+        }
+    </>
   )
 }
 

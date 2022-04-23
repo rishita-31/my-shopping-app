@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 const useData = (path = '/items',refetch = false) => {
 
     const [data, setData] = useState([]);
-    // refetch = true;
     useEffect( () => {
       fetch(path , {
       method: "GET",

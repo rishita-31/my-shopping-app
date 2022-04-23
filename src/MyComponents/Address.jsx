@@ -8,10 +8,9 @@ import Home from './Home';
 export default function Address(props) {
 
     const location = useLocation();
-    const { isLoggedIn, manageChange, manageSubmit,userState} = useAuth(
+    const { isLoggedIn, manageChange, manageSubmit,isLoading} = useAuth(
         { address: '', pincode: '',city: '',state: '', phone: null, id: props.currentUser.id},
-        '/address', 'PATCH');
-
+        '/address', 'PATCH',location.state);
 
     return ( location.state === null ? <Home/> :
         <div className='pt-5' style={{ backgroundColor: '#f0f0f5', width: '100%', height: '100vh' }}>
@@ -43,7 +42,7 @@ export default function Address(props) {
                     </Form.Group>
 
                     <Button variant="warning" type="submit">
-                        Place Order
+                        {isLoading? 'Processing...' : 'Save & Place Order'}
                     </Button>
                 </Form>
             </div>
