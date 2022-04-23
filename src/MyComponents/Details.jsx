@@ -83,9 +83,9 @@ export default function Details() {
             <p className="pt-3"><span className="cut-price">&#x20B9;699</span> (20% off) </p>
               <p><span className="price">{`Rs. ${location.state.price}`}</span> | <span className="in-stock">In stock</span> </p>
               <form>
-                <span className='px-2 py-1 mx-2' onClick={clickIncreaseHandler} style={{border: '1px solid black'}}>+</span>
+                <span href="#" className='px-2 py-1 mx-2' onClick={clickIncreaseHandler} style={{border: '1px solid black'}}>+</span>
                 <input className='col-2' type="text" value={quantity} readOnly/>
-                <span className='px-2 py-1 mx-2' onClick={clickDecreaseHandler} style={{border: '1px solid black'}}>-</span>
+                <span href="#" className='px-2 py-1 mx-2' onClick={clickDecreaseHandler} style={{border: '1px solid black'}}>-</span>
                 </form><br />
               <button onClick={cartHandler} className="btn btn-warning">Add to Cart</button>
               <button onClick={buyNowHandler} className="btn btn-success mx-2 px-4">Buy Now</button>

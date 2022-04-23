@@ -102,7 +102,7 @@ export default function Home() {
                             </form>                 
                         </div>
                     </div>
-                    <div className="card home-offer-card col-3" style={{width: '18rem', backgroundColor: '#f9f2ec'}}>
+                    {/* <div className="card home-offer-card col-3" style={{width: '18rem', backgroundColor: '#f9f2ec'}}>
                         <img src={img8} className="card-img-top  mt-3" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
@@ -112,7 +112,7 @@ export default function Home() {
                                 <Link to="#" className="btn btn-primary">Add to Cart</Link>
                             </form>                 
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

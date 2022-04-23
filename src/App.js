@@ -19,6 +19,7 @@ import { useState } from 'react';
 import { decodeToken } from "react-jwt";
 import useData from './hooks/use-data';
 import Address from './MyComponents/Address';
+import Orders from './MyComponents/Orders';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/details" element={<Details />} />
+            <Route path="/orders" element={<Orders />} />
             <Route path="/address" element={<Address currentUser= {currentUser}/>} />
           </Routes>
           <Footer />
