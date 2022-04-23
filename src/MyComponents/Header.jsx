@@ -1,27 +1,27 @@
-import React,{useContext} from 'react';
+import React, { useContext } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import {Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from '../context/auth-context';
 import user from '../images/user.png';
 
 export default function Header(props) {
-    const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
+    const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const logoutHandler = () => {
         fetch('/logout').then((response) => {
-            if(!response.ok){
-              console.log(response);
-            if (response.status === 500) return window.alert('Check your internet connection')
-            else return window.alert('Something went wrong!!, try again')
-          }else{
-            response.json().then((result) => {
-              window.alert(result.message);
-              localStorage.removeItem('token');
-              setIsLoggedIn(false);    
-              navigate('/login');  
-            })
-            .catch(err => window.alert(err.message));
-          }
+            if (!response.ok) {
+                console.log(response);
+                if (response.status === 500) return window.alert('Check your internet connection')
+                else return window.alert('Something went wrong!!, try again')
+            } else {
+                response.json().then((result) => {
+                    window.alert(result.message);
+                    localStorage.removeItem('token');
+                    setIsLoggedIn(false);
+                    navigate('/login');
+                })
+                    .catch(err => window.alert(err.message));
+            }
         })
     }
     return (
@@ -42,18 +42,17 @@ export default function Header(props) {
                         <Nav.Link href="/shops">Shops</Nav.Link>
                         <Nav.Link href="/contact">Contact us</Nav.Link>
                     </Nav>
-                    <img src={user} alt="user" />
-                    <NavDropdown id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="/cart">Cart</NavDropdown.Item>
-                        <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                            {isLoggedIn === true && 
-                                <NavDropdown.Link href="/" onClick={logoutHandler} style={{color:'rgba(0,0,0,.55)'}}>LogOut</NavDropdown.Link>
-                            }
-                    </NavDropdown>
+                    {isLoggedIn === true && <img src={user} alt="user" />}
+                    {isLoggedIn === true &&
+                        <NavDropdown id="navbarScrollingDropdown">
+                            <NavDropdown.Item href="/cart">Cart</NavDropdown.Item>
+                            <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            {/* <Link href="/" onClick={logoutHandler} style={{ color: 'rgba(0,0,0,.55)' }}>LogOut</Link> */}
+                        </NavDropdown>}
 
-                    {isLoggedIn === false && 
-                        <Nav.Link href="/login" style={{color:'rgba(0,0,0,.55)'}}>Login/Register</Nav.Link>
+                    {isLoggedIn === false &&
+                        <Nav.Link href="/login" style={{ color: 'rgba(0,0,0,.55)' }}>Login/Register</Nav.Link>
                     }
                     {/* {isLoggedIn === true && 
                         <Nav.Link href="/" onClick={logoutHandler} style={{color:'rgba(0,0,0,.55)'}}>LogOut</Nav.Link>
@@ -95,7 +94,7 @@ export default function Header(props) {
         //                     <Link className="nav-link" to="/contact">Contact us</Link>
         //                 </li>
         //             </ul>
-                    
+
         //             <ul className="navbar-nav mb-0 me-2 d-flex my-auto">
         //                 <img src="./images/cart.png" className="navimagecart" alt="" />
         //                 {isLoggedIn === false && <li className="nav-item">
