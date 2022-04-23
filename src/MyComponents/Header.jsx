@@ -25,7 +25,7 @@ export default function Header(props) {
         })
     }
     return (
-        <Navbar className='nav' expand="lg">
+        <Navbar className='nav' expand="lg" width="100vw">
             <Container fluid>
                 <Navbar.Brand href="/">{props.title}</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -47,17 +47,17 @@ export default function Header(props) {
                         <NavDropdown.Item href="/cart">Cart</NavDropdown.Item>
                         <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
                         <NavDropdown.Divider />
-                            {isLoggedIn === true && 
-                                <NavDropdown.Link href="/" onClick={logoutHandler} style={{color:'rgba(0,0,0,.55)'}}>LogOut</NavDropdown.Link>
-                            }
+                        <NavDropdown.Item href="/">
+                            Log Out
+                        </NavDropdown.Item>
                     </NavDropdown>
 
                     {isLoggedIn === false && 
                         <Nav.Link href="/login" style={{color:'rgba(0,0,0,.55)'}}>Login/Register</Nav.Link>
                     }
-                    {/* {isLoggedIn === true && 
+                    {isLoggedIn === true && 
                         <Nav.Link href="/" onClick={logoutHandler} style={{color:'rgba(0,0,0,.55)'}}>LogOut</Nav.Link>
-                    } */}
+                    }
                     {/* <Nav.Link href="/cart">Cart</Nav.Link> */}
 
                 </Navbar.Collapse>
