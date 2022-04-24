@@ -6,7 +6,7 @@ import Footer from './MyComponents/Footer';
 import Groceries from './MyComponents/Groceries';
 import Pharmacy from './MyComponents/Pharmacy';
 import Books from './MyComponents/Books';
-// import Shops from './MyComponents/Shops';
+import Electronics from './MyComponents/Electronics';
 import Contact from './MyComponents/Contact';
 import Cart from './MyComponents/Cart';
 import Home from './MyComponents/Home';
@@ -43,7 +43,7 @@ function App() {
             <Route path="/groceries" element={<Groceries itemData={itemData} currentUser= {currentUser} />} />
             <Route path="/pharmacy" element={<Pharmacy itemData={itemData} currentUser= {currentUser}/>} />
             <Route path="/books" element={<Books itemData={itemData} currentUser= {currentUser}/>} />
-            {/* <Route path="/shops" element={<Shops />} /> */}
+            <Route path="/electronics" element={<Electronics />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />

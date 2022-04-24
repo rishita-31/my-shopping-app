@@ -3,14 +3,14 @@ import pharmacyBanner from '../images/pharmacyBanner.jpg';
 import {Link, useNavigate} from "react-router-dom";
 import AuthContext from '../context/auth-context';
 
-export default function Pharmacy(props) {
+export default function Electronics(props) {
     const {isLoggedIn} = useContext(AuthContext);
     const navigate = useNavigate();
-    const pharmacyData = [];
+    const electronicsData = [];
 
     props.itemData.map(element => {
       if (element.type === 'medicine') {
-        pharmacyData.push(element);
+        electronicsData.push(element);
       }
     })
 
@@ -57,7 +57,7 @@ export default function Pharmacy(props) {
       ))
       }
 
-    const card = pharmacyData.map(items => {
+    const card = electronicsData.map(items => {
         return <div key={items._id} className="card col-3 mx-1 my-1" style={{ width: '18rem', height: '400px' }}>
           <span className="position-absolute end-0 top-0 translate-end badge bg-dark">Sale</span>
           <img src={`${items.image}`} onClick={() => clickHandler(items)} className="mt-3" alt="Loading..." height='200px' />
