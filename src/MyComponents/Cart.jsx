@@ -10,6 +10,7 @@ import AuthContext from '../context/auth-context';
 
 export default function Cart() {
     const {isLoggedIn} = useContext(AuthContext);
+    let total = 0;
     let [sendReq, setSendReq] = useState(false);
     let currentUser = {}
     if (localStorage.getItem('token')) {
@@ -40,8 +41,13 @@ export default function Cart() {
         navigate('/address',{state: cartData});
     }
 
+    const setTotal = (item) => {
+        total += (item.price * item.quantity)
+    }
+
     const row = cartData.map(
         item => <tr key={item._id}>
+            {setTotal(item)}
             <td className='cart-prod'>
                 <div className="imageContainer col-5 py-2" style={{ backgroundImage: `url(${item.image})` }}></div>
                 <div className="product col-7 py-2">{item.itemName}</div>
@@ -83,7 +89,7 @@ export default function Cart() {
                     <div className="grandTotal px-3 mr-0">
                         <h5 className=''>Grand Total</h5>
                         <div className="total">
-                            <h3>0</h3>
+                            <h3>{total}</h3>
                         </div>
                         <Button variant='warning' onClick={placeOrderHandler} >Place Order</Button>
                     </div>

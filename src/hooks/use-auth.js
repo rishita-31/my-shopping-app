@@ -51,12 +51,11 @@ const useAuth = (data = {
           body: JSON.stringify(userState)
       }).then(response => {
         if(!response.ok){
-          if(response.status === 401) return window.alert('Invalid username or password')
-          else if (response.status === 500) return window.alert('Check your internet connection')
+          if (response.status === 500) return window.alert('Check your internet connection')
           else return window.alert('Something went wrong!!, try again')
         }else{
           response.json().then((result)=> {
-            if(!result.auth) throw Error(result.error.message)
+            setUserState({name: '', email: '', subject: '', message: ''})
             window.alert(result.message);
           })
           .catch(err => window.alert(err.message));
@@ -89,7 +88,7 @@ const useAuth = (data = {
       }
 
     }
-    return {isLoggedIn, manageChange,manageSubmit,isLoading} 
+    return {isLoggedIn, manageChange,manageSubmit,isLoading,userState} 
 }
 
 export default useAuth;

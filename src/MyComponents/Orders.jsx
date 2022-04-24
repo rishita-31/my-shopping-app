@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Table, Button } from 'react-bootstrap';
 import ordersBanner from '../images/orders-banner.jpg';
 import useData from '../hooks/use-data';
@@ -6,12 +6,13 @@ import { decodeToken } from 'react-jwt';
 import emptyCart from '../images/emptyCart.png';
 
 function Orders() {
+    let [sendReq, setSendReq] = useState(false);
     let currentUser = {}
     if (localStorage.getItem('token')) {
         const token = localStorage.getItem('token');
         currentUser = decodeToken(token);
     }
-    const orderData = useData(`/order/${currentUser.id}`);
+    const orderData = useData(`/order/${currentUser.id}`, sendReq);
     const row = orderData.map(
         item => <tr key={item._id}>
         <td className='cart-prod'>
@@ -22,10 +23,25 @@ function Orders() {
         <td>&#x20B9;{item.price}</td>
         <td>Order Placed</td>
         <td>
-            <Button variant="danger">Cancel</Button>
+            <Button variant="danger" onClick={()=> deleteHandler(item)}>Cancel</Button>
         </td>
     </tr>
     )
+
+    const deleteHandler = (item) => {
+        fetch(`/order/${item._id}/delete`, {
+            method: "DELETE",
+            headers: {
+                'Content-type': 'application/json'
+            },
+        }).then(response =>
+            response.json().then(result => {
+                setSendReq((prevState) => !prevState);
+                window.alert(result.message)
+            }
+            ).catch(err => console.log(err))
+        )
+    }
 
   return (<>
         <div className="shopping-banner" style={{ backgroundImage: `url(${ordersBanner})`, backgroundPosition: 'center' }}></div>
