@@ -16,8 +16,8 @@ export default function Details() {
       return;
     }
     
-    const {id} = decodeToken(localStorage.getItem('token'));
-    const {itemName, description,price,image,type,weight} = location.state;
+    const {id: userId} = decodeToken(localStorage.getItem('token'));
+    const {id,itemName, description,price,image,type,weight} = location.state;
     const item = {
       itemName,
       description,
@@ -26,7 +26,8 @@ export default function Details() {
       type,
       quantity: quantity,
       weight,
-      userId: id
+      userId,
+      objectId: id
     }
     fetch('/cart' , {
       method: "POST",
@@ -80,7 +81,7 @@ export default function Details() {
           <div className="productPageRight my-5 col-7 p-5">
             <h2>{location.state.itemName}</h2>
             <p className='py-3'>{location.state.description}</p>
-            <p className="pt-3"><span className="cut-price">&#x20B9;699</span> (20% off) </p>
+            {/* <p className="pt-3"><span className="cut-price">&#x20B9;699</span> (20% off) </p> */}
               <p><span className="price">{`Rs. ${location.state.price}`}</span> | <span className="in-stock">In stock</span> </p>
               <form>
                 <span href="#" className='px-2 py-1 mx-2' onClick={clickIncreaseHandler} style={{border: '1px solid black'}}>+</span>

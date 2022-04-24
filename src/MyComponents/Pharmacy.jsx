@@ -17,6 +17,7 @@ export default function Pharmacy(props) {
     const clickHandler = (items) => {
         navigate('/details', {
           state: {
+            id: items._id,
             image: items.image, 
             itemName: items.itemName,
             description: items.description,
@@ -34,8 +35,8 @@ export default function Pharmacy(props) {
           navigate('/login');
           return;
         }
-        const {id} = props.currentUser;
-        const {itemName, description,price,image,type,quantity,weight} = items;
+        const userId = props.currentUser.id;
+        const {_id, itemName, description,price,image,type,quantity,weight} = items;
         const item = {
           itemName,
           description,
@@ -44,7 +45,8 @@ export default function Pharmacy(props) {
           type,
           quantity: 1,
           weight,
-          userId: id
+          userId,
+          objectId: _id
         }
         fetch('/cart' , {
           method: "POST",
@@ -62,11 +64,10 @@ export default function Pharmacy(props) {
           <span className="position-absolute end-0 top-0 translate-end badge bg-dark">Sale</span>
           <img src={`${items.image}`} onClick={() => clickHandler(items)} className="mt-3" alt="Loading..." height='200px' />
           <div className="card-body" >
-            <h5 className="card-title" onClick={() => clickHandler(items)} >{items.itemName}</h5>
-            {/* <div className="card-bottom"> */}
-              <p><span className="price">&#x20B9;{items.price}</span> | <span className="in-stock">In stock</span> </p>
-              <button onClick={() => cartHandler(items)} className="btn btn-primary" >Add to Cart</button>
-            {/* </div> */}
+            <h5 className="card-title" style={{height: '45px'}} onClick={() => clickHandler(items)} >
+            {items.itemName.substring(0, Math.min(items.itemName.length, 30))}{items.itemName.length > 30 &&'...'}</h5>
+            <p><span className="price">&#x20B9;{items.price}</span> | <span className="in-stock">In stock</span> </p>
+            <button onClick={() => cartHandler(items)} className="btn btn-primary">Add to Cart</button>
           </div>
         </div>
       })
