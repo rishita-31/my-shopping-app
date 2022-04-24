@@ -92,7 +92,7 @@ export default function Home(props) {
 
 
     const card = anyData.map(items => {
-        return <div key={items._id} className="card col-3 mx-1 my-1" style={{ width: '18rem', height: '400px' }}>
+        return <div key={items._id} className="card col-3 mx-1 my-1" style={{ width: '15rem', height: '400px' }}>
           <span className="position-absolute end-0 top-0 translate-end badge bg-dark">Sale</span>
           <img onClick={() => clickHandler(items)} src={`${items.image}`} className="mt-3" alt="Loading..." height='200px' />
           <div className="card-body" >
@@ -147,21 +147,21 @@ export default function Home(props) {
        
 
     <section className="section py-5">
-        <div className="container col-12 px-3" style={{height:'fit-content', display: 'flex'}}>
-            <div className="mx-auto">
-                <h2 className="section-one pt-2">OFFERS OF THE DAY</h2>
-                <p className="section-one-desc pb-5">These offers are valid only till 11:59:59 today!</p>
-                
-            </div>
+      <div className="container col-12 px-3" style={{height:'fit-content', display: 'flex'}}>
+        <div className="mx-auto">
+          <h2 className="section-one pt-2">OFFERS OF THE DAY</h2>
+          <p className="section-one-desc">These offers are valid only till 11:59:59 today!</p>
         </div>
+      </div>
+      <div className="container pt-5">
+        <div className="row justify-content-center">
+        {
+          card
+        }
+        </div>
+      </div>
     </section>
-    <div className="container py-5">
-    <div className="row justify-content-center">
-    {
-        card
-    }
-    </div>
-    </div>
+    
 
     <div className="new-offers mx-auto py-5">
         <h2 className="section-two">NEWLY ADDED PRODUCTS</h2>

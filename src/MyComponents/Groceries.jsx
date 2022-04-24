@@ -60,7 +60,7 @@ export default function Groceries(props) {
   }
 
   const card = groceriesData.map(items => {
-    return <div key={items._id} className="card col-3 mx-1 my-1" style={{ width: '18rem', height: '400px' }}>
+    return <div key={items._id} className="card col-3 mx-1 my-1" style={{ width: '15rem', height: '400px' }}>
       <span className="position-absolute end-0 top-0 translate-end badge bg-dark">Sale</span>
       <img onClick={() => clickHandler(items)} src={`${items.image}`} className="mt-3" alt="Loading..." height='200px' />
       <div className="card-body" >
