@@ -7,8 +7,8 @@ export default function Shops() {
   <div className="header" style = {{backgroundImage: `url(${img1})`}}></div>
   <section className="section-g">
         <div className="container py-5">
-          <h2 className="ghead d-flex justify-content-center pt-2">OFFERS OF THE DAY</h2>
-          <p className="ghead pb-5 d-flex justify-content-center fst-italic">These offers are valid only till 11:59:59 today!</p>
+          {/* <h2 className="ghead d-flex justify-content-center pt-2">OFFERS OF THE DAY</h2>
+          <p className="ghead pb-5 d-flex justify-content-center fst-italic">These offers are valid only till 11:59:59 today!</p> */}
           <div className="row d-inline-flex justify-content-center">
             <div className="card col-3 mx-1 my-1" style={{width: '18rem'}}>
               <span class="position-absolute end-0 top-0 translate-end badge bg-dark">Sale</span>

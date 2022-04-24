@@ -39,13 +39,13 @@ export default function Login() {
                         <FormGroup row>
                             <Label for="username" sm={2}>Username</Label>
                             <Col sm={10}>
-                                <Input type="text" name="username" id="username" onChange={manageChange} placeholder="Enter your username" />
+                                <Input type="text" name="username" id="username" onChange={manageChange} placeholder="Enter your username" required />
                             </Col>
                         </FormGroup>
                         <FormGroup row>
                             <Label for="password" sm={2}>Password</Label>
                             <Col sm={10}>
-                                <Input type="password" name="password" id="password" onChange={manageChange} placeholder="Enter your password" />
+                                <Input type="password" name="password" id="password" onChange={manageChange} placeholder="Enter your password" required />
                             </Col>
                         </FormGroup>
                         <FormGroup row>
