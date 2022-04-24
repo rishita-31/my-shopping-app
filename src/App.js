@@ -39,7 +39,7 @@ function App() {
         <div className="App">
           <Header title="STOP N' SHOP" currentUser={currentUser} />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home currentUser={currentUser} itemData={itemData}/>} />
             <Route path="/groceries" element={<Groceries itemData={itemData} currentUser= {currentUser} />} />
             <Route path="/pharmacy" element={<Pharmacy itemData={itemData} currentUser= {currentUser}/>} />
             <Route path="/books" element={<Books itemData={itemData} currentUser= {currentUser}/>} />

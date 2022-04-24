@@ -17,6 +17,7 @@ export default function Pharmacy(props) {
     const clickHandler = (items) => {
         navigate('/details', {
           state: {
+            id: items._id,
             image: items.image, 
             itemName: items.itemName,
             description: items.description,
@@ -34,8 +35,8 @@ export default function Pharmacy(props) {
           navigate('/login');
           return;
         }
-        const {id} = props.currentUser;
-        const {itemName, description,price,image,type,quantity,weight} = items;
+        const userId = props.currentUser.id;
+        const {_id, itemName, description,price,image,type,quantity,weight} = items;
         const item = {
           itemName,
           description,
@@ -44,7 +45,8 @@ export default function Pharmacy(props) {
           type,
           quantity: 1,
           weight,
-          userId: id
+          userId,
+          objectId: _id
         }
         fetch('/cart' , {
           method: "POST",
