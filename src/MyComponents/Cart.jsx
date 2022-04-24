@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import shoppingCart from '../images/shopping-cart.jpg';
+import emptyCart from '../images/emptyCart.png';
 import { Table, Button } from 'react-bootstrap';
 import useData from '../hooks/use-data';
 import { decodeToken } from 'react-jwt';
@@ -95,6 +96,7 @@ export default function Cart() {
             <div className="shopping-banner" style={{ backgroundImage: `url(${shoppingCart})` }}></div>
             {cartData.length === 0 ? <div style={{ backgroundColor: '#f0f0f5' }}>
                 <h2 className="d-flex justify-content-center py-5">Your Cart is Empty</h2>
+                <img width="20%" height="20%" className='mx-auto d-flex justify-content-center pb-5' style={{align:'center'}} src={emptyCart} alt="emptyCart" />
             </div> : displayCart}
         </>
 }

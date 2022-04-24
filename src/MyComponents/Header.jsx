@@ -27,7 +27,7 @@ export default function Header(props) {
     return (
         <Navbar className='nav' expand="lg" width="100vw">
             <Container fluid>
-                <Navbar.Brand href="/">{props.title}</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">{props.title}</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -35,18 +35,18 @@ export default function Header(props) {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/groceries">Groceries</Nav.Link>
-                        <Nav.Link href="/pharmacy">Pharmacy</Nav.Link>
-                        <Nav.Link href="/books">Books&Stationery</Nav.Link>
-                        {/* <Nav.Link href="/shops">Shops</Nav.Link> */}
-                        <Nav.Link href="/contact">Contact us</Nav.Link>
+                        <Nav.Link as={Link} to="/">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/groceries">Groceries</Nav.Link>
+                        <Nav.Link as={Link} to="/pharmacy">Pharmacy</Nav.Link>
+                        <Nav.Link as={Link} to="/books">Books&Stationery</Nav.Link>
+                        {/* <Nav.Link as={Link} to="/shops">Shops</Nav.Link> */}
+                        <Nav.Link as={Link} to="/contact">Contact us</Nav.Link>
                     </Nav>
                     {isLoggedIn === true && <Nav.Item style={{color: 'black' , margin: '5px'}}>{props.currentUser.username}</Nav.Item>}
                     {isLoggedIn === true && <img src={user} alt="user" />}
-                    {isLoggedIn === true && <NavDropdown id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="/cart">Cart</NavDropdown.Item>
-                        <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
+                    {isLoggedIn === true && <NavDropdown id="navbarScrollingDropdown" align={{ lg: 'end' }}>
+                        <NavDropdown.Item as={Link} to="/cart">Cart</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/orders">My Orders</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item onClick={logoutHandler}>
                             LogOut
@@ -54,11 +54,11 @@ export default function Header(props) {
                     </NavDropdown>}
                     
                     {isLoggedIn === false &&
-                        <Nav.Link href="/login" style={{ color: 'rgba(0,0,0,.55)' }}>Login/Register</Nav.Link>
+                        <Nav.Link as={Link} to="/login" style={{ color: 'rgba(0,0,0,.55)' }}>Login/Register</Nav.Link>
                     }
-                    {isLoggedIn === true && 
+                    {/* {isLoggedIn === true && 
                         <Nav.Link onClick={logoutHandler} style={{color:'rgba(0,0,0,.55)'}}>LogOut</Nav.Link>
-                    }
+                    } */}
 
                 </Navbar.Collapse>
             </Container>

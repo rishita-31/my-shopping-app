@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import img1 from '../images/img1.jpg';
+import pharmacyBanner from '../images/pharmacyBanner.jpg';
 import {Link, useNavigate} from "react-router-dom";
 import AuthContext from '../context/auth-context';
 
@@ -70,7 +70,7 @@ export default function Pharmacy(props) {
       })
 
   return <>
-  <div className="header" style = {{backgroundImage: `url(${img1})`}}></div>
+  <div className="header" style = {{backgroundImage: `url(${pharmacyBanner})`, backgroundPosition:'center'}}></div>
   <section className="section-g">
         <div className="container py-5">
           {/* <h2 className="ghead d-flex justify-content-center pt-2">OFFERS OF THE DAY</h2>

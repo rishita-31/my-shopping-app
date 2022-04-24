@@ -137,7 +137,7 @@ form ul{
 }
 .products{
   display: flex;
-  padding: 30px 90px;
+  /* padding: 30px 90px; */
 }
 @media only screen and (max-width: 1155.20px) {
 

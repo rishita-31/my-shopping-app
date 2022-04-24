@@ -3,6 +3,7 @@ import { Table, Button } from 'react-bootstrap';
 import ordersBanner from '../images/orders-banner.jpg';
 import useData from '../hooks/use-data';
 import { decodeToken } from 'react-jwt';
+import emptyCart from '../images/emptyCart.png';
 
 function Orders() {
     let currentUser = {}
@@ -31,6 +32,8 @@ function Orders() {
         { orderData.length === 0 ? 
         <div style={{ backgroundColor: '#f0f0f5' }}>
         <h2 className="d-flex justify-content-center  py-5">No Orders To Display</h2>
+        <img width="20%" height="20%" className='mx-auto d-flex justify-content-center pb-5' style={{align:'center'}} src={emptyCart} alt="emptyCart" />
+
         </div> :
         <section className="section-g">
             <div style={{ backgroundColor: '#f0f0f5' }}>
