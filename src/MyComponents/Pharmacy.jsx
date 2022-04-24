@@ -82,7 +82,6 @@ export default function Pharmacy(props) {
             {
                 card
             }
-            
           </div>
         </div>
       </section>
