@@ -1,8 +1,13 @@
 import React from 'react';
 import img11 from '../images/img11.jpg';
 import {Link} from "react-router-dom";
+import useAuth from '../hooks/use-auth';
 
 export default function Contact() {
+
+  const {isLoggedIn, manageChange,manageSubmit,isLoading,userState} = useAuth(
+    {name: '', email: '', subject: '', message: ''},'/query');
+
   return <>
  <div className="header" style = {{backgroundImage: `url(${img11})`}}></div>
 
@@ -30,24 +35,24 @@ export default function Contact() {
         </div>
         <div className="col-md-1"></div>
         <div className="col-md-6">
-          <form action="" method="POST" className="contact-form">
+          <form className="contact-form" onSubmit={manageSubmit}>
             <div className="row">
               <div className="col-md-6">
                 <div className="form-group">
-                  <input type="text" name="names" className="form-control" placeholder="Your Name"/>
+                  <input type="text" name="name" onChange={manageChange} value={userState.name} className="form-control" placeholder="Your Name" required/>
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="form-group">
-                  <input type="text" name="email" className="form-control" placeholder="Your Email"/>
+                  <input type="text" name="email" onChange={manageChange} value={userState.email} className="form-control" placeholder="Your Email" required/>
                 </div>
                 </div>
             </div>
             <div className="form-group">
-              <input type="text" name="subjects" className="form-control" placeholder="Subject"/>
+              <input type="text" name="subject" onChange={manageChange} value={userState.subject} className="form-control" placeholder="Subject" required/>
             </div>
             <div className="form-group">
-              <textarea id="" name="messages" cols="30" rows="7" className="form-control" placeholder="Message"></textarea>
+              <textarea id="" name="message" onChange={manageChange} value={userState.message} cols="30" rows="7" className="form-control" placeholder="Message" required/>
             </div>
             <div className="form-group">
               <input type="submit" name="submit" value="Send Message" className="btn btn-success py-3 px-5"/>

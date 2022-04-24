@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-const useData = (path = '/items') => {
+const useData = (path = '/items',refetch = false) => {
 
     const [data, setData] = useState([]);
-
-    useEffect( () => fetch(path , {
+    useEffect( () => {
+      fetch(path , {
       method: "GET",
       headers: {
         'Content-type': 'application/json'
@@ -19,8 +19,9 @@ const useData = (path = '/items') => {
       })
       .catch(err => window.alert(err.message));
     }
-  }
-  ),[]);
+  })
+
+},[refetch]);
   
     return data;
 
