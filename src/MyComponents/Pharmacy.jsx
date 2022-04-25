@@ -65,7 +65,7 @@ export default function Pharmacy(props) {
           <img src={`${items.image}`} onClick={() => clickHandler(items)} className="mt-3" alt="Loading..." height='200px' />
           <div className="card-body" >
             <h5 className="card-title" style={{height: '45px'}} onClick={() => clickHandler(items)} >
-            {items.itemName.substring(0, Math.min(items.itemName.length, 30))}{items.itemName.length > 30 &&'...'}</h5>
+            {items.itemName.substring(0, Math.min(items.itemName.length, 20))}{items.itemName.length > 20 &&'...'}</h5>
             <p><span className="price">&#x20B9;{items.price}</span> | <span className="in-stock">In stock</span> </p>
             <button onClick={() => cartHandler(items)} className="btn btn-primary">Add to Cart</button>
           </div>

@@ -43,7 +43,7 @@ function App() {
             <Route path="/groceries" element={<Groceries itemData={itemData} currentUser= {currentUser} />} />
             <Route path="/pharmacy" element={<Pharmacy itemData={itemData} currentUser= {currentUser}/>} />
             <Route path="/books" element={<Books itemData={itemData} currentUser= {currentUser}/>} />
-            <Route path="/electronics" element={<Electronics />} />
+            <Route path="/electronics" element={<Electronics itemData={itemData} currentUser= {currentUser}/>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />

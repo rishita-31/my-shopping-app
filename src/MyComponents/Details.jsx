@@ -82,7 +82,7 @@ export default function Details() {
             <h2>{location.state.itemName}</h2>
             <p className='py-3'>{location.state.description}</p>
             {/* <p className="pt-3"><span className="cut-price">&#x20B9;699</span> (20% off) </p> */}
-              <p><span className="price">{`Rs. ${location.state.price}`}</span> | <span className="in-stock">In stock</span> </p>
+              <p><span className="price">&#x20B9;{location.state.price}</span> | <span className="in-stock">In stock</span> </p>
               <form>
                 <span href="#" className='px-2 py-1 mx-2' onClick={clickIncreaseHandler} style={{border: '1px solid black'}}>+</span>
                 <input className='col-2' type="text" value={quantity} readOnly/>
