@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-
 import { Carousel } from 'react-bootstrap';
 import {Link, useNavigate} from "react-router-dom";
 import img2 from '../images/img2.jpg';
@@ -7,32 +6,12 @@ import img3 from '../images/img3.jpg';
 import img4 from '../images/img4.jpg';
 import img6 from '../images/img6.jpg';
 import img7 from '../images/img7.jpg';
-import img8 from '../images/img8.jpg';
 import img9 from '../images/img9.jpg';
-import img10 from '../images/img10.jpg';
 import read from '../images/read.jpg';
 import AuthContext from '../context/auth-context';
 
 
 export default function Home(props) {
-
-
-
-    // <div className="row justify-content-center">
-    //                 <div className="card home-offer-card col-3" style={{width: '18rem', backgroundColor: '#f2e6ff'}}>
-    //                     <img src={img8} name="product-image" className="card-img-top mt-3" alt="..."/>
-    //                     <div className="card-body">
-    //                         <h5 className="card-title" name="product-title">Lenovo HT05 TWS Earphones with Bluetooth 5.0</h5>
-    //                         <p className="card-text" name="product-cost-price"><span className="cut-price">&#x20B9;3999</span> (40% off) </p>
-    //                         <form>
-    //                             <p name="product-selling-price"><span className="price">&#x20B9;1599</span> | <span className="in-stock" name="status">In stock</span> </p>
-    //                             <Link to="#" className="btn btn-primary">Add to Cart</Link>
-    //                         </form>                 
-    //                     </div>
-    //                 </div>
-
-    //             </div>
-
 
     const {isLoggedIn} = useContext(AuthContext);
     const navigate = useNavigate();
@@ -155,9 +134,9 @@ export default function Home(props) {
       </div>
       <div className="container pt-5">
         <div className="row justify-content-center">
-        {
-          card
-        }
+          {
+            card
+          }
         </div>
       </div>
     </section>
