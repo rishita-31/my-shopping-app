@@ -1,79 +1,12 @@
-import React, { useContext } from 'react';
-import { useNavigate } from "react-router-dom";
-import AuthContext from '../context/auth-context';
+import React from 'react';
+import DisplayCard from '../HelperComponent/DisplayCard';
 import img1 from '../images/img1.jpg';
 
 export default function Groceries(props) {
-  const {isLoggedIn} = useContext(AuthContext);
-  const navigate = useNavigate();
-  const groceriesData = [];
-
-  props.itemData.map(element => {
-    if (element.type === 'groceries') {
-      groceriesData.push(element);
-    }
-  })
-
-  const clickHandler = (items) => {
-    navigate('/details', {
-      state: {
-        id: items._id,
-        image: items.image, 
-        itemName: items.itemName,
-        description: items.description,
-        price: items.price,
-        quantity: items.quantity,
-        weight: items.weight,
-        type: items.type
-      }
-    })
-  }
-
-  const cartHandler = (items) => {
-    if(!isLoggedIn){
-      window.alert('Logging in first');
-      navigate('/login');
-      return;
-    }
-    const userId = props.currentUser.id;
-    const {_id,itemName, description,price,image,type,quantity,weight} = items;
-    const item = {
-      itemName,
-      description,
-      price,
-      image,
-      type,
-      quantity: 1,
-      weight,
-      userId,
-      objectId: _id
-    }
-    fetch('/cart' , {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(item)
-  }).then(response => response.json().then(
-    result => window.alert(result.message)
-  ))
-  }
-
-  const card = groceriesData.map(items => {
-    return <div key={items._id} className="card col-3 mx-1 my-1" style={{ width: '15rem', height: '400px' }}>
-      <span className="position-absolute end-0 top-0 translate-end badge bg-dark">Sale</span>
-      <img onClick={() => clickHandler(items)} src={`${items.image}`} className="mt-3" alt="Loading..." height='200px' />
-      <div className="card-body" >
-        <h5 onClick={() => clickHandler(items)} style={{height: '45px'}} className="card-title">
-          {items.itemName.substring(0, Math.min(items.itemName.length, 20))}{items.itemName.length > 20 &&'...'}</h5>
-        <p><span className="price">&#x20B9;{items.price}</span> | <span className="in-stock">In stock</span> </p>
-        <button onClick={() => cartHandler(items)} className="btn btn-primary">Add to Cart</button>
-      </div>
-    </div>
-  })
 
   return <>
     <div className="header" style={{ backgroundImage: `url(${img1})` }}></div>
+<<<<<<< HEAD
     <section className="section-g">
       <div className="container py-5">
 
@@ -84,5 +17,9 @@ export default function Groceries(props) {
         </div>
       </div>
     </section>
+=======
+  <DisplayCard currentUser={props.currentUser} itemData={props.itemData} type1='groceries' type2 = ''/>
+>>>>>>> 5709e660826243deab00062c5c274864758669fd
   </>
+  
 }

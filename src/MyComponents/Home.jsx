@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-
 import { Carousel } from 'react-bootstrap';
 import {Link, useNavigate} from "react-router-dom";
 import img2 from '../images/img2.jpg';
@@ -7,13 +6,16 @@ import img3 from '../images/img3.jpg';
 import img4 from '../images/img4.jpg';
 import img6 from '../images/img6.jpg';
 import img7 from '../images/img7.jpg';
-import img8 from '../images/img8.jpg';
 import img9 from '../images/img9.jpg';
 import read from '../images/read.jpg';
 import AuthContext from '../context/auth-context';
 
 
 export default function Home(props) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5709e660826243deab00062c5c274864758669fd
     const {isLoggedIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const anyData = [];
@@ -135,9 +137,9 @@ export default function Home(props) {
       </div>
       <div className="container pt-5">
         <div className="row justify-content-center">
-        {
-          card
-        }
+          {
+            card
+          }
         </div>
       </div>
     </section>
