@@ -77,8 +77,6 @@ export default function Groceries(props) {
     <section className="section-g">
       <div className="container py-5">
 
-        {/* <h2 className="ghead d-flex justify-content-center pt-2">OFFERS OF THE DAY</h2>
-        <p className="ghead pb-5 d-flex justify-content-center fst-italic">These offers are valid only till 11:59:59 today!</p> */}
         <div className="row d-inline-flex justify-content-center">
           {
             card
