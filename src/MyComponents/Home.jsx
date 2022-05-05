@@ -6,7 +6,6 @@ import img3 from '../images/img3.jpg';
 import img4 from '../images/img4.jpg';
 import img6 from '../images/img6.jpg';
 import img7 from '../images/img7.jpg';
-import img9 from '../images/img9.jpg';
 import read from '../images/read.jpg';
 import AuthContext from '../context/auth-context';
 
@@ -15,10 +14,17 @@ export default function Home(props) {
     const {isLoggedIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const anyData = [];
+    const newlyAddedData = [];
   
     props.itemData.map(element => {
       if (element.type === 'any') {
         anyData.push(element);
+      }
+    })
+
+    props.itemData.map((element,i )=> {
+      if(i >= props.itemData.length - 2){
+        newlyAddedData.push(element);
       }
     })
   
@@ -82,6 +88,21 @@ export default function Home(props) {
         </div>
       })
 
+    const newlyAddedItemCard = newlyAddedData.map(items =>{
+          return <div key={items._id} className="product-one col-6" style={{height: '500px'}}>
+            <div className="col-6 mx-2 newproduct-one-image">
+                <img onClick={() => clickHandler(items)} src={`${items.image}`}/>
+            </div>
+            <div className="col-6 mx-2 newproduct-one-desc">
+                <h2 style={{height: '130px'}}>{items.itemName.substring(0, Math.min(items.itemName.length, 40))}{items.itemName.length > 40 &&'...'}</h2>
+                <p style={{height: '150px'}}>{items.description.substring(0, Math.min(items.description.length, 200))}{items.description.length > 200 &&'...'}</p>
+                <p style={{marginTop: '30px'}}><span className="price">&#x20B9;{items.price}</span> | <span className="in-stock">In stock</span> </p>
+                <button onClick={() => cartHandler(items)} className="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+    })
+
+    
   return (
     <>
     <Carousel>
@@ -146,36 +167,9 @@ export default function Home(props) {
         <p className="section-two-desc">Compare the products and grab the best deal!</p>
         <div className="container">
             <div className="row col-12 products justify-content-center">
-                <div className="product-one col-6">
-                    <div className="col-6 mx-2 newproduct-one-image">
-                        <img src={img9} alt="mama earth onion shampoo"/>
-                    </div>
-                    <div className="col-6 mx-2 newproduct-one-desc">
-                        <h2>Mamaearth Onion Shampoo</h2>
-                        <p>Hair Growth & Hair Fall Control with Onion Oil & Plant Keratin 400ml</p>
-                        <p>Onion Oil stimulates the scalp, promoting blood circulation and hair growth. Plant Keratin strengthens hair, and makes it frizz-free."</p>
-                        <p className="card-text"><span className="cut-price">&#x20B9;699</span> (20% off) </p>
-                        <form>
-                            <p><span className="price">&#x20B9;560</span> | <span className="in-stock">In stock</span> </p>
-                            <Link to="#" className="btn btn-primary">Add to Cart</Link>
-                        </form>
-                    </div>
-                </div>
-                <div className="product-two col-6">
-                    <div className="col-6 mx-2 newproduct-two-image">
-                        <img src={img9} alt="mama earth onion shampoo"/>
-                    </div>
-                    <div className="col-6 mx-2 newproduct-two-desc">
-                        <h2>Mamaearth Onion Shampoo</h2>
-                        <p>Hair Growth & Hair Fall Control with Onion Oil & Plant Keratin 400ml</p>
-                        <p>Onion Oil stimulates the scalp, promoting blood circulation and hair growth. Plant Keratin strengthens hair, and makes it frizz-free."</p>
-                        <p className="card-text"><span className="cut-price">&#x20B9;699</span> (20% off) </p>
-                        <form>
-                            <p><span className="price">&#x20B9;560</span> | <span className="in-stock">In stock</span> </p>
-                            <Link to="#" className="btn btn-primary">Add to Cart</Link>
-                        </form>
-                    </div>
-                </div>
+              {
+                newlyAddedItemCard
+              }
             </div>
         </div>
     </div>
