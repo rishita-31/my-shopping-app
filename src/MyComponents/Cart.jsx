@@ -57,8 +57,8 @@ export default function Cart() {
                     <input type="number" min={1} max={15} value={item.quantity} readOnly />
                 </form>
             </td>
-            <td>{`Rs.${item.price}`}</td>
-            <td>{`Rs.${item.price * item.quantity}`}</td>
+            <td>&#x20B9;{item.price}</td>
+            <td>&#x20B9;{item.price * item.quantity}</td>
             <td><Button variant='danger' onClick={() => deleteHandler(item)} className='btn-sm'>Delete</Button></td>
         </tr>
     )
@@ -85,14 +85,12 @@ export default function Cart() {
                         </tbody>
                     </Table>
                 </div>
-                <div className="row" style={{ display: 'flex' }}>
-                    <div className="grandTotal px-3 mr-0">
-                        <h5 className=''>Grand Total</h5>
-                        <div className="total">
-                            <h3>{total}</h3>
-                        </div>
-                        <Button variant='warning' onClick={placeOrderHandler} >Place Order</Button>
+                <div className="justify-content-end">
+                    <div className="grandTotal d-flex px-3 py-2">
+                        <h5 className='col-10'>Grand Total:</h5>
+                        <h5 className='col-2'>&#x20B9;{total}</h5>
                     </div>
+                    <Button size='sm' variant='warning' onClick={placeOrderHandler} >Place Order</Button>
                 </div>
             </div>
         </div>

@@ -69,8 +69,6 @@ export default function Register() {
                         </Col>
                     </FormGroup>
 
-                    
-                    
                 </form>
             </div>
         </div>

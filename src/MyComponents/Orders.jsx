@@ -21,7 +21,7 @@ function Orders() {
         </td>                                    
         <td>{item.quantity}</td>
         <td>&#x20B9;{item.price}</td>
-        <td>Order Placed</td>
+        <td style={{color: 'green' , marginRight: '10px'}}>Order Placed</td>
         <td>
             <Button variant="danger" onClick={()=> deleteHandler(item)}>Cancel</Button>
         </td>
