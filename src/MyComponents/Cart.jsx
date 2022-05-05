@@ -87,8 +87,8 @@ export default function Cart() {
                 </div>
                 <div className="justify-content-end">
                     <div className="grandTotal d-flex px-3 py-2">
-                        <h5 className='col-10'>Grand Total:</h5>
-                        <h5 className='col-2'>&#x20B9;{total}</h5>
+                        <h5 className='col-9'>Grand Total:</h5>
+                        <h5 className='col-3'>&#x20B9;{total}</h5>
                     </div>
                     <Button size='sm' variant='warning' onClick={placeOrderHandler} >Place Order</Button>
                 </div>
