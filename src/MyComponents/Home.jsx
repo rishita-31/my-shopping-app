@@ -11,10 +11,6 @@ import AuthContext from '../context/auth-context';
 
 
 export default function Home(props) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 5709e660826243deab00062c5c274864758669fd
     const {isLoggedIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const anyData = [];
@@ -106,7 +102,7 @@ export default function Home(props) {
         </div>
     })
 
-
+    
   return (
     <>
     <Carousel>
